@@ -420,7 +420,7 @@ module.exports.prototype.aceShowKeybordShortcuts = function () {
     
     el.style.cssText = 'margin:0; padding:0; background-color:white; color:black; ' +
         'white-space: pre-wrap;';
-    this.overlayPage(el, '0', null, '0', '0');
+    this.overlayPage(el, '0', '0', '0', null);
 };
 
 module.exports.prototype.aceShowSettingsMenu = function () {
