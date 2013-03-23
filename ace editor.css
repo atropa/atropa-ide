@@ -1,0 +1,49 @@
+body {
+    overflow: auto;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.container#leftbuttons { 
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: gray;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 25px;
+}
+
+#editor { 
+    margin: 0;
+    padding: 0;
+    border: none;
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.button {
+    margin: 0px 1px;
+    padding: 0px 4px;
+    height: 25px;
+    width: 25px;
+    background-size: 100% auto;
+}
+
+.button#save {
+    background-image: url(famfamfam_silk_icons_v013/icons/script_save.png);
+}
+
+.button#showKeyboardShortcuts {
+    background-image: url(famfamfam_silk_icons_v013/icons/keyboard.png);
+}
+
+.button#showSettingsMenu {
+    background-image: url(famfamfam_silk_icons_v013/icons/control_equalizer_blue.png);
+}

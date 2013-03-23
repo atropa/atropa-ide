@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<html>
+<head>
+	<title>new.html</title>
+	<meta charset="utf-8">
+	<script src="ckeditor/ckeditor.js"></script>
+    <script src="editor.jsn"></script>
+    <script type="text/javascript"
+        type="text/javascript"
+        charset="utf-8">
+        var Ui = require('./browser_modules/ckeditor.js');
+</script>
+</head>
+<body onload="ui = new Ui(); ui.initializeCk();">
+	<form id="atropaEditor" action="save.jsn" method="post">
+                <input style="display:none;"
+                   type="text"
+                   id="fileName"
+                   name="fileName" />
+		<textarea
+            cols="80"
+            id="newFile"
+            name="newFile"
+            rows="10"
+            style="
+                width: 50%;
+                height: 400px;
+            ">&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+    &lt;meta content="text/html; charset=utf-8"
+          http-equiv="content-type">
+	&lt;title>&lt;/title>
+&lt;/head>
+&lt;body>&lt;/body>
+&lt;/html>
+</textarea>
+	</form>
+</body>
+</html>

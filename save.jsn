@@ -1,0 +1,42 @@
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    node: true,
+    vars: true
+*/
+module.exports = function (response, request) {
+    "use strict";
+    var querystring = require('querystring');
+    var os = require('os');
+    var body = '';
+    var outputFile = '';
+    if (request.method.toLowerCase() === 'post') {
+        request.on('data', function (data) {
+            body += data.toString();
+        });
+        request.on('end', function () {
+            body = querystring.parse(body);
+            outputFile += body.newFile;
+            outputFile = outputFile.replace(/(\r\n|\r|\n)/g, os.EOL);
+            response.writeHead(200, {
+                'Content-Type' : 'text/plain',
+                'Content-Disposition' : 'attachment; filename="' +
+                    body.fileName.replace(/ \([0-9]+\)/, '') + '"'
+            });
+            response.write(
+                outputFile,
+                'utf8'
+            );
+            response.end();
+        });
+    } else {
+        response.writeHead(405, {
+            'Content-Type' : 'text/plain',
+            'Allow' : 'POST'
+        });
+        response.end('this page may only be posted to', 'utf8');
+    }
+};
+
+
