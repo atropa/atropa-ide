@@ -23,9 +23,12 @@
             type="text/javascript"
             charset="utf-8">
             var Ui = require('./browser_modules/ace editor.js');
+            var options = {
+                'mode' : window.location.search.slice(1).split('=')[1] || 'ace/mode/javascript'
+            };
         </script>
     </head>
-    <body onload="ui = new Ui(); ui.initializeAce();">
+    <body onload="ui = new Ui(); ui.initializeAce(options);">
         
         <div class="container" id="leftbuttons">
             <button class="button"

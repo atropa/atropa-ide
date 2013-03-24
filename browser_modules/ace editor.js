@@ -12,9 +12,17 @@
 */
 module.exports = require('./editor.js');
 
-module.exports.prototype.initializeAce = function () {
+module.exports.prototype.initializeAce = function (options) {
     "use strict";
+    options = options || {};
     var my = this;
+    var defaults = {
+        'mode' : 'ace/mode/javascript'
+    };
+    
+    Object.keys(defaults).forEach(function (defalt) {
+        options[defalt] = options[defalt] || defaults[defalt];
+    });
     
     this.textarea = document.getElementById('newFile');
     this.editor = ace.edit("editor");
@@ -31,10 +39,9 @@ module.exports.prototype.initializeAce = function () {
     this.editor.setReadOnly(false);
     this.editor.setBehavioursEnabled(true);
     this.editor.setWrapBehavioursEnabled(true);
-    this.editor.setShowFoldWidgets(true);
     
     this.session.setOverwrite(false);
-    this.session.setMode("ace/mode/javascript");
+    this.session.setMode(options.mode);
     this.session.setUseWrapMode(true);
     this.session.setWrapLimit = function (limit) {
         my.session.setWrapLimitRange(limit, limit);
@@ -42,11 +49,8 @@ module.exports.prototype.initializeAce = function () {
     this.session.setWrapLimit(80);
     this.session.setUseSoftTabs(true);
     this.session.setTabSize(4);
-    this.session.setOverwrite(false);
     this.session.setNewLineMode('windows');
     this.session.setUseWorker(true);
-    this.session.setMode('ace/mode/javascript');
-    this.session.setUseWrapMode(true);
     
     this.renderer.setAnimatedScroll(false);
     this.renderer.setShowInvisibles(false);
