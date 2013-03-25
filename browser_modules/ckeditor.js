@@ -15,6 +15,20 @@ module.exports = require('./editor.js');
 module.exports.prototype.initializeCk = function () {
     "use strict";
     var my = this;
+    var highlighter = require('./ckeditor aceSourceView.js');
+    var getCodeHighlighterDefault = function () {
+        return {
+            'highlighter' : {},
+            'getValue' : function () {
+                throw new Error('implement this on codeHighlighter ' +
+                    'instantiation');
+            },
+            'setValue' : function () {
+                throw new Error('implement this on codeHighlighter ' +
+                    'instantiation');
+            }
+        };
+    };
     
     function getDropElement() {
         var dropElement;
@@ -30,55 +44,41 @@ module.exports.prototype.initializeCk = function () {
         my.loadFile(files);
     }
     
-    function aceSetup(textarea, ace) {
-        ace.session.on('change', function (e) {
-            textarea.value = ace.session.getValue();
+    function highlighterSetup(textarea) {
+        function l (e) {
+            textarea.value = my.codeHighlighter.getValue();
+        }
+        my.editor.on('mode', function (e) {
+            my.editor.removeListener('beforeCommandExec', l);
         });
-        ace.session.setValue(textarea.value);
+        my.editor.on('beforeCommandExec', l);
+        my.codeHighlighter.setValue(textarea.value);
     }
         
     function sourceViewOverride() {
+        var frame;
         var textarea = my.getSourceEditorTextarea();
         textarea.style.cssText = textarea.style.cssText + ';display:none;';
         
-        var ace = document.createElement('iframe');
-        ace.setAttribute('src', 'ace editor.html?mode=ace/mode/html');
-        ace.setAttribute('style', 
+        my.codeHighlighter.frame = document.createElement('iframe');
+        my.codeHighlighter.frame.setAttribute('src', highlighter.url);
+        my.codeHighlighter.frame.setAttribute('style', 
             'padding: 0; margin: 0; border: none; ' +
             'height: 100%; width: 100%; overflow: auto;'
         );
         
-        textarea.parentNode.appendChild(ace);
+        textarea.parentNode.appendChild(my.codeHighlighter.frame);
         
-        function waitForAce() {
+        function waitForHighlighter() {
             try {
-                aceSetup(textarea, ace.contentWindow.ui);
+                my.codeHighlighter = highlighter.hook(my.codeHighlighter);
+                highlighterSetup(textarea);
             } catch (e) {
-                console.log('waiting for 250');
-                setTimeout(waitForAce, 250);
+                setTimeout(waitForHighlighter, 250);
             }
         }
-        waitForAce();
+        waitForHighlighter();
     }
-    /* I don't know if I'll use this or not. it works well enough but I'm going to try and get away with reusing ace editor.html
-    function sourceViewOverride() {
-        var textarea = my.getSourceEditorTextarea();
-        textarea.style.cssText = textarea.style.cssText + ';display:none;';
-        
-        var tx = document.createElement('div');
-        tx.id = 'editor';
-        tx.style.cssText = 'width:100%;height:100%;';
-        textarea.parentNode.appendChild(tx);
-        var Highlighter = require('./ace editor.js');
-        var highlight = new Highlighter();
-        highlight.initializeAce();
-        highlight.session.setMode("ace/mode/html");
-        highlight.session.on('change', function (e) {
-            textarea.value = highlight.session.getValue();
-        });
-        highlight.session.setValue(textarea.value);
-    }
-    */
     
     function modeSwitch () {
         if(my.editor.mode === 'wysiwyg') {
@@ -100,10 +100,12 @@ module.exports.prototype.initializeCk = function () {
         modeSwitch();
     };
     
+    this.codeHighlighter = getCodeHighlighterDefault();
+    
     CKEDITOR.replace('newFile', {
         fullPage: true,
         extraPlugins: 'wysiwygarea',
-        on: {            
+        on: {          
             'instanceReady': function instanceReadyFn (evt) {
                 my.editor = evt.editor;
                 my.editor.execCommand('maximize');
