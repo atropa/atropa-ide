@@ -32,6 +32,7 @@ module.exports = function (response, request) {
         'require' : []
     };
     compilerOptions.require = compilerOptions.files;
+    compilerOptions.require.push('url');
     
     respond(response, request, compilerOptions);
 };

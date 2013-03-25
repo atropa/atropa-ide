@@ -8,7 +8,8 @@
 /*global
     ace,
     module,
-    require
+    require,
+    getComputedStyle
 */
 module.exports = require('./editor.js');
 
@@ -26,7 +27,23 @@ module.exports.prototype.initializeAce = function (options) {
         
         function mergeGivenOptionsWithDefaults () {
             Object.keys(defaults).forEach(function (setting) {
-                options[setting] = options[setting] || defaults[setting];
+                if(options[setting]) {
+                    switch (typeof defaults[setting]) {
+                        case 'boolean' :
+                            options[setting] = (options[setting] === 'false') ? false : true ;
+                            break;
+                        case 'number' :
+                            options[setting] = Number(options[setting]);
+                            break;
+                        case 'string' :
+                            options[setting] = String(options[setting]);
+                        default:
+                            break;
+                    }
+                } else {
+                    options[setting] = defaults[setting];
+                }
+                
             });
         }
         
@@ -45,7 +62,7 @@ module.exports.prototype.initializeAce = function (options) {
         my.renderer = my.editor.renderer;
         my.editor.getFontSize = function () {
             return getComputedStyle(
-                ui.editor.container).getPropertyValue('font-size');
+                my.editor.container).getPropertyValue('font-size');
         };
         my.session.setWrapLimit = function (limit) {
             my.session.setWrapLimitRange(limit, limit);
