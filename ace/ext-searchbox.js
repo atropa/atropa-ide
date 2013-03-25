@@ -162,6 +162,11 @@ var html = '<div class="ace_search right">\
         <button type="button" action="replace" class="ace_replacebtn">Replace</button>\
         <button type="button" action="replaceAll" class="ace_replacebtn">All</button>\
     </div>\
+    <div class="ace_search_options">\
+        <input id="regExp" type="checkbox"></input><label for="regExp">RegExp Search</label><br>\
+        <input id="caseSensitive" type="checkbox"></input><label for="caseSensitive">caseSensitive Search</label><br>\
+        <input id="wholeWord" type="checkbox"></input><label for="wholeWord">wholeWord Search</label>\
+    </div>\
 </div>'.replace(/>\s+/g, ">");
 
 var SearchBox = function(editor, range, showReplaceForm) {
@@ -185,8 +190,13 @@ var SearchBox = function(editor, range, showReplaceForm) {
 
         this.searchBox = sb.querySelector(".ace_search_form");
         this.replaceBox = sb.querySelector(".ace_replace_form");
+        this.searchOptions = sb.querySelector(".ace_search_options");
+        this.regExp_option = sb.querySelector(".ace_search_options #regExp");
+        this.caseSensitive_option = sb.querySelector(".ace_search_options #caseSensitive");
+        this.wholeWord_option = sb.querySelector(".ace_search_options #wholeWord");
         this.searchInput = this.searchBox.querySelector(".ace_search_field");
         this.replaceInput = this.replaceBox.querySelector(".ace_search_field");
+        
 
         var _this = this;
         event.addListener(sb, "mousedown", function(e) {
@@ -225,6 +235,10 @@ var SearchBox = function(editor, range, showReplaceForm) {
         event.addListener(this.replaceInput, "focus", function() {
             _this.activeInput = _this.replaceInput;
         });
+        event.addListener(this.searchOptions, "change", function() {
+            _this.find(false, false);
+        });
+        
     };
     this.$closeSearchBarKb = new HashHandler([{
         bindKey: "Esc",
@@ -263,7 +277,10 @@ var SearchBox = function(editor, range, showReplaceForm) {
         this.editor.find(this.searchInput.value, {
             skipCurrent: skipCurrent,
             backwards: backwards,
-            wrap: true
+            wrap: true,
+            regExp: this.regExp_option.checked,
+            caseSensitive: this.caseSensitive_option.checked,
+            wholeWord: this.wholeWord_option.checked
         });
         this.editor.session.highlight(this.editor.$search.$options.re);
     };
