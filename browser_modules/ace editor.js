@@ -43,6 +43,10 @@ module.exports.prototype.initializeAce = function (options) {
         my.editor = ace.edit("editor");
         my.session = my.editor.getSession();
         my.renderer = my.editor.renderer;
+        my.editor.getFontSize = function () {
+            return getComputedStyle(
+                ui.editor.container).getPropertyValue('font-size');
+        };
         my.session.setWrapLimit = function (limit) {
             my.session.setWrapLimitRange(limit, limit);
         };
