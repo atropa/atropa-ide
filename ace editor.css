@@ -47,3 +47,11 @@ body {
 .button#showSettingsMenu {
     background-image: url(famfamfam_silk_icons_v013/icons/control_equalizer_blue.png);
 }
+
+.button#undo {
+    background-image: url(famfamfam_silk_icons_v013/icons/arrow_undo.png);
+}
+
+.button#redo {
+    background-image: url(famfamfam_silk_icons_v013/icons/arrow_redo.png);
+}
