@@ -9,7 +9,7 @@
     module
 */
 module.exports = {
-    'url' : 'ace editor.html?mode=ace/mode/html',
+    'url' : 'ace editor.html?setMode=ace/mode/html',
     'hook' : function (codeHighlighter) {
         "use strict";
         codeHighlighter.getValue = function () {
