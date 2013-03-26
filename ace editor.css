@@ -55,3 +55,7 @@ body {
 .button#redo {
     background-image: url(famfamfam_silk_icons_v013/icons/arrow_redo.png);
 }
+
+.button#formatJs {
+    background-image: url(famfamfam_silk_icons_v013/icons/rainbow.png);
+}

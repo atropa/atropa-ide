@@ -29,7 +29,7 @@ function formatJs(source, escodegenOptions, esprimaOptions) {
     
     esprima = require('esprima');
     escodegen = require('escodegen');
-    os = require('os');
+    os = require('../core wrappers/os.js');
     
     esprimaOptions = esprimaOptions || {
         "loc"      : false,

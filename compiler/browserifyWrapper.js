@@ -50,7 +50,20 @@ module.exports = function (options) {
         options.detectGlobals = false;
     }
     
-    var b = browserify(defaults.files);
+    try {
+        var b = browserify(defaults.files);
+    } catch (e) {
+        err = {
+            'message' : 'Could not complete browserify.browserify' +
+                ' because ' + e,
+            'browserifyError' : e
+        };
+        err.toString = function () {
+            return 'Could not complete browserify.browserify' +
+            ' because ' + e
+        };
+        throw new Error(err);
+    }
     
     [
         'add',
@@ -106,11 +119,6 @@ module.exports = function (options) {
         'detectGlobals' : defaults.detectGlobals,
         'debug' : defaults.debug
     }, function (err, src) {
-        if(!err) {
-            var path = require('path');
-            var formatter = require('atropa-jsformatter');
-            src = formatter(src);
-        }
         defaults.callback(err, src);
     });
 };

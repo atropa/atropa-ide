@@ -12,7 +12,7 @@
 */
 module.exports = function (response, request) {
     "use strict";
-    var compiler = require('browserModuleCompiler.js');
+    var compiler = require('./compiler/browserModuleCompiler.js');
     compiler.serverResponse(response, request);
 };
 

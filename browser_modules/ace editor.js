@@ -114,13 +114,22 @@ module.exports.prototype.initializeAce = function (options) {
     };
     
     this.save = function () {
-        var code = this.session.getValue();
+        var code = my.session.getValue();
         my.textarea.textContent = code;
         document.forms[0].submit();
     };
     
     this.setEditorValue = function (value) {
         my.session.setValue(value);
+    };
+    
+    this.getEditorValue = function () {
+        return my.session.getValue();
+    };
+    
+    this.formatJs = function () {
+        var formatter = require('atropa-jsformatter');
+        my.setEditorValue(formatter(my.getEditorValue()));
     };
     
     this.catchDroppedFiles(document.getElementById('editor'), loadFile);
