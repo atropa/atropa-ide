@@ -1,3 +1,4 @@
+"use strict";
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -11,28 +12,8 @@
 */
 module.exports = function (response, request) {
     "use strict";
-    var fs = require('fs');
-    var path = require('path');
-    var respond = require('./browser_modules/compiler/respondWithCompiledFiles.js');
-    
-    var compilerOptions = {
-        'files' : (
-            fs.readdirSync(
-                path.normalize(__dirname + '/browser_modules')
-            ).map(
-                function (item) {
-                    return './browser_modules/' + item;
-                }
-            ).filter(
-                function (item) {
-                    return fs.statSync(item).isFile();
-                }
-            )
-        ),
-        'require' : []
-    };
-    compilerOptions.require = compilerOptions.files;
-    compilerOptions.require.push('url');
-    
-    respond(response, request, compilerOptions);
+    var compiler = require('browserModuleCompiler.js');
+    compiler.serverResponse(response, request);
 };
+
+
