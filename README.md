@@ -20,15 +20,6 @@ the main page. In this case it will be `http://localhost:5555` Use whatever
 port you want to when starting the server or leave it unspecified and a default
 port will be chosen.
 
-To launch the atropa-ide from somewhere outside of the .bin directory 
-you will need to give a second argument telling atropa-ide where the module 
-folder is located. For example, to launch atropa-ide from the parent folder 
-containing the node_modules directory run 
-```
-node_modules/.bin/atropa-ide 5555 ./node_modules/atropa-ide/
-```
-from the parent folder.
-
 The atropa-ide may also be launched from scripts.
 
 ```
@@ -36,6 +27,7 @@ var ide = require('atropa-ide');
 var path = require('path');
 var port = 9777;
 var serverRoot = path.resolve('./node_modules/atropa-ide/');
+// the port and serverRoot arguments are optional.
 ide.start(port, serverRoot);
 console.log('open http://localhost:' +
     port + ' in your web browser to get started.');
