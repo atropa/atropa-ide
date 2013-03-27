@@ -26,6 +26,6 @@
                         "jake" : "0.5.10"
     },
     "bin" : {
-        "atropa-ide" : "./start-server.js"
+        "atropa-ide" : "./bin/start-server.js"
     }
 }
