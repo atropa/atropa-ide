@@ -1,3 +1,5 @@
+# atropa-ide
+
 An ide for web development using ckeditor and ace.
 
 ## installation
