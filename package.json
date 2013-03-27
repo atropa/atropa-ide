@@ -1,0 +1,31 @@
+{
+                    
+    "name"          : "atropa-ide",
+    "version"       : "0.1.0",
+    "main"          : "./atropa-ide.js",
+    "description"   : "An ide for web development using ckeditor and ace.",
+    "keywords"      : ["atropa-ide", "atropa", "utilities", "ide", "code editor", "html editor"],
+    "homepage"      : "https://github.com/atropa/atropa-ide/",
+    "bugs"          : "https://github.com/atropa/atropa-ide/issues",
+    "author"        : {
+                        "name"      : "Matthew Kastor",
+                        "email"     : "matthewkastor@gmail.com",
+                        "url"       : "https://plus.google.com/100898583798552211130"
+    },
+    "repository"    : {
+                        "type"      : "git",
+                        "url"       : "git://github.com/atropa/atropa-ide.git"
+    },
+    "engines"       : {
+                        "node"      : ">=0.8.16"
+    },
+    "dependencies"  : {
+                        "atropa-jsformatter" : "0.1.1",
+                        "atropa-server" : "0.1.1-1",
+                        "browserify" : "2.7.2",
+                        "jake" : "0.5.10"
+    },
+    "bin" : {
+        "atropa-ide" : "./start-server.js"
+    }
+}
