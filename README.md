@@ -24,8 +24,10 @@ The atropa-ide may also be launched from scripts.
 
 ```
 var ide = require('atropa-ide');
+var path = require('path');
 var port = 9777;
-ide.start(port);
+var serverRoot = path.resolve('./node_modules/atropa-ide/');
+ide.start(port, serverRoot);
 console.log('open http://localhost:' +
     port + ' in your web browser to get started.');
 ```
