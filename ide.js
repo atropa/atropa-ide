@@ -18,501 +18,6 @@ require = function (e, t, n, r) {
         i(r[s]);
     return i;
 }(typeof require !== 'undefined' && require, {
-    './browser_modules/ace editor default settings.js': [
-        function (require, module, exports) {
-            module.exports = require('k9z+hH');
-        },
-        {}
-    ],
-    'k9z+hH': [
-        function (require, module, exports) {
-            /*jslint
-                indent: 4,
-                maxerr: 50,
-                white: true,
-                browser: true,
-                vars: true
-            */
-            /*globals
-                module
-            */
-            module.exports = {
-                'setAnimatedScroll': false,
-                'setBehavioursEnabled': true,
-                'setDisplayIndentGuides': true,
-                'setDragDelay': 150,
-                'setFadeFoldWidgets': false,
-                'setHScrollBarAlwaysVisible': false,
-                'setHighlightActiveLine': true,
-                'setHighlightGutterLine': true,
-                'setHighlightSelectedWord': true,
-                'setMode': 'ace/mode/javascript',
-                'setNewLineMode': 'windows',
-                'setOverwrite': false,
-                'setPrintMarginColumn': 80,
-                'setReadOnly': false,
-                'setScrollSpeed': true,
-                'setSelectionStyle': 'line',
-                'setShowFoldWidgets': true,
-                'setShowGutter': true,
-                'setShowInvisibles': false,
-                'setShowPrintMargin': true,
-                'setTabSize': 4,
-                'setTheme': 'ace/theme/twilight',
-                'setUseSoftTabs': true,
-                'setUseWorker': true,
-                'setUseWrapMode': true,
-                'setWrapBehavioursEnabled': true,
-                'setWrapLimit': 80
-            };
-        },
-        {}
-    ],
-    './browser_modules/ace editor settings menu options.js': [
-        function (require, module, exports) {
-            module.exports = require('HCa7Jr');
-        },
-        {}
-    ],
-    'HCa7Jr': [
-        function (require, module, exports) {
-            /*jslint
-                indent: 4,
-                maxerr: 50,
-                white: true,
-                browser: true,
-                vars: true
-            */
-            /*globals
-                module
-            */
-            module.exports = {
-                'setNewLineMode': [
-                    {
-                        'textContent': 'unix',
-                        'value': 'unix'
-                    },
-                    {
-                        'textContent': 'windows',
-                        'value': 'windows'
-                    },
-                    {
-                        'textContent': 'auto',
-                        'value': 'auto'
-                    }
-                ],
-                'setTheme': [
-                    {
-                        'textContent': 'ambiance',
-                        'value': 'ace/theme/ambiance'
-                    },
-                    {
-                        'textContent': 'chaos',
-                        'value': 'ace/theme/chaos'
-                    },
-                    {
-                        'textContent': 'chrome',
-                        'value': 'ace/theme/chrome'
-                    },
-                    {
-                        'textContent': 'clouds',
-                        'value': 'ace/theme/clouds'
-                    },
-                    {
-                        'textContent': 'clouds_midnight',
-                        'value': 'ace/theme/clouds_midnight'
-                    },
-                    {
-                        'textContent': 'cobalt',
-                        'value': 'ace/theme/cobalt'
-                    },
-                    {
-                        'textContent': 'crimson_editor',
-                        'value': 'ace/theme/crimson_editor'
-                    },
-                    {
-                        'textContent': 'dawn',
-                        'value': 'ace/theme/dawn'
-                    },
-                    {
-                        'textContent': 'dreamweaver',
-                        'value': 'ace/theme/dreamweaver'
-                    },
-                    {
-                        'textContent': 'eclipse',
-                        'value': 'ace/theme/eclipse'
-                    },
-                    {
-                        'textContent': 'github',
-                        'value': 'ace/theme/github'
-                    },
-                    {
-                        'textContent': 'idle_fingers',
-                        'value': 'ace/theme/idle_fingers'
-                    },
-                    {
-                        'textContent': 'kr',
-                        'value': 'ace/theme/kr'
-                    },
-                    {
-                        'textContent': 'merbivore',
-                        'value': 'ace/theme/merbivore'
-                    },
-                    {
-                        'textContent': 'merbivore_soft',
-                        'value': 'ace/theme/merbivore_soft'
-                    },
-                    {
-                        'textContent': 'monokai',
-                        'value': 'ace/theme/monokai'
-                    },
-                    {
-                        'textContent': 'mono_industrial',
-                        'value': 'ace/theme/mono_industrial'
-                    },
-                    {
-                        'textContent': 'pastel_on_dark',
-                        'value': 'ace/theme/pastel_on_dark'
-                    },
-                    {
-                        'textContent': 'solarized_dark',
-                        'value': 'ace/theme/solarized_dark'
-                    },
-                    {
-                        'textContent': 'solarized_light',
-                        'value': 'ace/theme/solarized_light'
-                    },
-                    {
-                        'textContent': 'textmate',
-                        'value': 'ace/theme/textmate'
-                    },
-                    {
-                        'textContent': 'tomorrow',
-                        'value': 'ace/theme/tomorrow'
-                    },
-                    {
-                        'textContent': 'tomorrow_night',
-                        'value': 'ace/theme/tomorrow_night'
-                    },
-                    {
-                        'textContent': 'tomorrow_night_blue',
-                        'value': 'ace/theme/tomorrow_night_blue'
-                    },
-                    {
-                        'textContent': 'tomorrow_night_bright',
-                        'value': 'ace/theme/tomorrow_night_bright'
-                    },
-                    {
-                        'textContent': 'tomorrow_night_eighties',
-                        'value': 'ace/theme/tomorrow_night_eighties'
-                    },
-                    {
-                        'textContent': 'twilight',
-                        'value': 'ace/theme/twilight'
-                    },
-                    {
-                        'textContent': 'vibrant_ink',
-                        'value': 'ace/theme/vibrant_ink'
-                    },
-                    {
-                        'textContent': 'xcode',
-                        'value': 'ace/theme/xcode'
-                    }
-                ],
-                'setMode': [
-                    {
-                        'textContent': 'abap',
-                        'value': 'ace/mode/abap'
-                    },
-                    {
-                        'textContent': 'asciidoc',
-                        'value': 'ace/mode/asciidoc'
-                    },
-                    {
-                        'textContent': 'c9search',
-                        'value': 'ace/mode/c9search'
-                    },
-                    {
-                        'textContent': 'clojure',
-                        'value': 'ace/mode/clojure'
-                    },
-                    {
-                        'textContent': 'coffee',
-                        'value': 'ace/mode/coffee'
-                    },
-                    {
-                        'textContent': 'coldfusion',
-                        'value': 'ace/mode/coldfusion'
-                    },
-                    {
-                        'textContent': 'csharp',
-                        'value': 'ace/mode/csharp'
-                    },
-                    {
-                        'textContent': 'css',
-                        'value': 'ace/mode/css'
-                    },
-                    {
-                        'textContent': 'curly',
-                        'value': 'ace/mode/curly'
-                    },
-                    {
-                        'textContent': 'c_cpp',
-                        'value': 'ace/mode/c_cpp'
-                    },
-                    {
-                        'textContent': 'dart',
-                        'value': 'ace/mode/dart'
-                    },
-                    {
-                        'textContent': 'diff',
-                        'value': 'ace/mode/diff'
-                    },
-                    {
-                        'textContent': 'django',
-                        'value': 'ace/mode/django'
-                    },
-                    {
-                        'textContent': 'dot',
-                        'value': 'ace/mode/dot'
-                    },
-                    {
-                        'textContent': 'ftl',
-                        'value': 'ace/mode/ftl'
-                    },
-                    {
-                        'textContent': 'glsl',
-                        'value': 'ace/mode/glsl'
-                    },
-                    {
-                        'textContent': 'golang',
-                        'value': 'ace/mode/golang'
-                    },
-                    {
-                        'textContent': 'groovy',
-                        'value': 'ace/mode/groovy'
-                    },
-                    {
-                        'textContent': 'haml',
-                        'value': 'ace/mode/haml'
-                    },
-                    {
-                        'textContent': 'haxe',
-                        'value': 'ace/mode/haxe'
-                    },
-                    {
-                        'textContent': 'html',
-                        'value': 'ace/mode/html'
-                    },
-                    {
-                        'textContent': 'jade',
-                        'value': 'ace/mode/jade'
-                    },
-                    {
-                        'textContent': 'java',
-                        'value': 'ace/mode/java'
-                    },
-                    {
-                        'textContent': 'javascript',
-                        'value': 'ace/mode/javascript'
-                    },
-                    {
-                        'textContent': 'json',
-                        'value': 'ace/mode/json'
-                    },
-                    {
-                        'textContent': 'jsp',
-                        'value': 'ace/mode/jsp'
-                    },
-                    {
-                        'textContent': 'jsx',
-                        'value': 'ace/mode/jsx'
-                    },
-                    {
-                        'textContent': 'latex',
-                        'value': 'ace/mode/latex'
-                    },
-                    {
-                        'textContent': 'less',
-                        'value': 'ace/mode/less'
-                    },
-                    {
-                        'textContent': 'liquid',
-                        'value': 'ace/mode/liquid'
-                    },
-                    {
-                        'textContent': 'lisp',
-                        'value': 'ace/mode/lisp'
-                    },
-                    {
-                        'textContent': 'livescript',
-                        'value': 'ace/mode/livescript'
-                    },
-                    {
-                        'textContent': 'logiql',
-                        'value': 'ace/mode/logiql'
-                    },
-                    {
-                        'textContent': 'lsl',
-                        'value': 'ace/mode/lsl'
-                    },
-                    {
-                        'textContent': 'lua',
-                        'value': 'ace/mode/lua'
-                    },
-                    {
-                        'textContent': 'luapage',
-                        'value': 'ace/mode/luapage'
-                    },
-                    {
-                        'textContent': 'lucene',
-                        'value': 'ace/mode/lucene'
-                    },
-                    {
-                        'textContent': 'makefile',
-                        'value': 'ace/mode/makefile'
-                    },
-                    {
-                        'textContent': 'markdown',
-                        'value': 'ace/mode/markdown'
-                    },
-                    {
-                        'textContent': 'objectivec',
-                        'value': 'ace/mode/objectivec'
-                    },
-                    {
-                        'textContent': 'ocaml',
-                        'value': 'ace/mode/ocaml'
-                    },
-                    {
-                        'textContent': 'pascal',
-                        'value': 'ace/mode/pascal'
-                    },
-                    {
-                        'textContent': 'perl',
-                        'value': 'ace/mode/perl'
-                    },
-                    {
-                        'textContent': 'pgsql',
-                        'value': 'ace/mode/pgsql'
-                    },
-                    {
-                        'textContent': 'php',
-                        'value': 'ace/mode/php'
-                    },
-                    {
-                        'textContent': 'powershell',
-                        'value': 'ace/mode/powershell'
-                    },
-                    {
-                        'textContent': 'python',
-                        'value': 'ace/mode/python'
-                    },
-                    {
-                        'textContent': 'r',
-                        'value': 'ace/mode/r'
-                    },
-                    {
-                        'textContent': 'rdoc',
-                        'value': 'ace/mode/rdoc'
-                    },
-                    {
-                        'textContent': 'rhtml',
-                        'value': 'ace/mode/rhtml'
-                    },
-                    {
-                        'textContent': 'ruby',
-                        'value': 'ace/mode/ruby'
-                    },
-                    {
-                        'textContent': 'sass',
-                        'value': 'ace/mode/sass'
-                    },
-                    {
-                        'textContent': 'scad',
-                        'value': 'ace/mode/scad'
-                    },
-                    {
-                        'textContent': 'scala',
-                        'value': 'ace/mode/scala'
-                    },
-                    {
-                        'textContent': 'scheme',
-                        'value': 'ace/mode/scheme'
-                    },
-                    {
-                        'textContent': 'scss',
-                        'value': 'ace/mode/scss'
-                    },
-                    {
-                        'textContent': 'sh',
-                        'value': 'ace/mode/sh'
-                    },
-                    {
-                        'textContent': 'sql',
-                        'value': 'ace/mode/sql'
-                    },
-                    {
-                        'textContent': 'stylus',
-                        'value': 'ace/mode/stylus'
-                    },
-                    {
-                        'textContent': 'svg',
-                        'value': 'ace/mode/svg'
-                    },
-                    {
-                        'textContent': 'tcl',
-                        'value': 'ace/mode/tcl'
-                    },
-                    {
-                        'textContent': 'tex',
-                        'value': 'ace/mode/tex'
-                    },
-                    {
-                        'textContent': 'text',
-                        'value': 'ace/mode/text'
-                    },
-                    {
-                        'textContent': 'textile',
-                        'value': 'ace/mode/textile'
-                    },
-                    {
-                        'textContent': 'tmsnippet',
-                        'value': 'ace/mode/tmsnippet'
-                    },
-                    {
-                        'textContent': 'tm_snippet',
-                        'value': 'ace/mode/tm_snippet'
-                    },
-                    {
-                        'textContent': 'toml',
-                        'value': 'ace/mode/toml'
-                    },
-                    {
-                        'textContent': 'typescript',
-                        'value': 'ace/mode/typescript'
-                    },
-                    {
-                        'textContent': 'vbscript',
-                        'value': 'ace/mode/vbscript'
-                    },
-                    {
-                        'textContent': 'xml',
-                        'value': 'ace/mode/xml'
-                    },
-                    {
-                        'textContent': 'xquery',
-                        'value': 'ace/mode/xquery'
-                    },
-                    {
-                        'textContent': 'yaml',
-                        'value': 'ace/mode/yaml'
-                    }
-                ]
-            };
-        },
-        {}
-    ],
     'url': [
         function (require, module, exports) {
             module.exports = require('CCiCNi');
@@ -1077,13 +582,458 @@ require = function (e, t, n, r) {
         },
         { 'querystring': 1 }
     ],
-    './browser_modules/ckeditor aceSourceView.js': [
+    './browser_modules/ace editor settings menu options.js': [
         function (require, module, exports) {
-            module.exports = require('a5pW2C');
+            module.exports = require('5QF9Qj');
         },
         {}
     ],
-    'a5pW2C': [
+    '5QF9Qj': [
+        function (require, module, exports) {
+            /*jslint
+                indent: 4,
+                maxerr: 50,
+                white: true,
+                browser: true,
+                vars: true
+            */
+            /*globals
+                module
+            */
+            module.exports = {
+                'setNewLineMode': [
+                    {
+                        'textContent': 'unix',
+                        'value': 'unix'
+                    },
+                    {
+                        'textContent': 'windows',
+                        'value': 'windows'
+                    },
+                    {
+                        'textContent': 'auto',
+                        'value': 'auto'
+                    }
+                ],
+                'setTheme': [
+                    {
+                        'textContent': 'ambiance',
+                        'value': 'ace/theme/ambiance'
+                    },
+                    {
+                        'textContent': 'chaos',
+                        'value': 'ace/theme/chaos'
+                    },
+                    {
+                        'textContent': 'chrome',
+                        'value': 'ace/theme/chrome'
+                    },
+                    {
+                        'textContent': 'clouds',
+                        'value': 'ace/theme/clouds'
+                    },
+                    {
+                        'textContent': 'clouds_midnight',
+                        'value': 'ace/theme/clouds_midnight'
+                    },
+                    {
+                        'textContent': 'cobalt',
+                        'value': 'ace/theme/cobalt'
+                    },
+                    {
+                        'textContent': 'crimson_editor',
+                        'value': 'ace/theme/crimson_editor'
+                    },
+                    {
+                        'textContent': 'dawn',
+                        'value': 'ace/theme/dawn'
+                    },
+                    {
+                        'textContent': 'dreamweaver',
+                        'value': 'ace/theme/dreamweaver'
+                    },
+                    {
+                        'textContent': 'eclipse',
+                        'value': 'ace/theme/eclipse'
+                    },
+                    {
+                        'textContent': 'github',
+                        'value': 'ace/theme/github'
+                    },
+                    {
+                        'textContent': 'idle_fingers',
+                        'value': 'ace/theme/idle_fingers'
+                    },
+                    {
+                        'textContent': 'kr',
+                        'value': 'ace/theme/kr'
+                    },
+                    {
+                        'textContent': 'merbivore',
+                        'value': 'ace/theme/merbivore'
+                    },
+                    {
+                        'textContent': 'merbivore_soft',
+                        'value': 'ace/theme/merbivore_soft'
+                    },
+                    {
+                        'textContent': 'monokai',
+                        'value': 'ace/theme/monokai'
+                    },
+                    {
+                        'textContent': 'mono_industrial',
+                        'value': 'ace/theme/mono_industrial'
+                    },
+                    {
+                        'textContent': 'pastel_on_dark',
+                        'value': 'ace/theme/pastel_on_dark'
+                    },
+                    {
+                        'textContent': 'solarized_dark',
+                        'value': 'ace/theme/solarized_dark'
+                    },
+                    {
+                        'textContent': 'solarized_light',
+                        'value': 'ace/theme/solarized_light'
+                    },
+                    {
+                        'textContent': 'textmate',
+                        'value': 'ace/theme/textmate'
+                    },
+                    {
+                        'textContent': 'tomorrow',
+                        'value': 'ace/theme/tomorrow'
+                    },
+                    {
+                        'textContent': 'tomorrow_night',
+                        'value': 'ace/theme/tomorrow_night'
+                    },
+                    {
+                        'textContent': 'tomorrow_night_blue',
+                        'value': 'ace/theme/tomorrow_night_blue'
+                    },
+                    {
+                        'textContent': 'tomorrow_night_bright',
+                        'value': 'ace/theme/tomorrow_night_bright'
+                    },
+                    {
+                        'textContent': 'tomorrow_night_eighties',
+                        'value': 'ace/theme/tomorrow_night_eighties'
+                    },
+                    {
+                        'textContent': 'twilight',
+                        'value': 'ace/theme/twilight'
+                    },
+                    {
+                        'textContent': 'vibrant_ink',
+                        'value': 'ace/theme/vibrant_ink'
+                    },
+                    {
+                        'textContent': 'xcode',
+                        'value': 'ace/theme/xcode'
+                    }
+                ],
+                'setMode': [
+                    {
+                        'textContent': 'abap',
+                        'value': 'ace/mode/abap'
+                    },
+                    {
+                        'textContent': 'asciidoc',
+                        'value': 'ace/mode/asciidoc'
+                    },
+                    {
+                        'textContent': 'c9search',
+                        'value': 'ace/mode/c9search'
+                    },
+                    {
+                        'textContent': 'clojure',
+                        'value': 'ace/mode/clojure'
+                    },
+                    {
+                        'textContent': 'coffee',
+                        'value': 'ace/mode/coffee'
+                    },
+                    {
+                        'textContent': 'coldfusion',
+                        'value': 'ace/mode/coldfusion'
+                    },
+                    {
+                        'textContent': 'csharp',
+                        'value': 'ace/mode/csharp'
+                    },
+                    {
+                        'textContent': 'css',
+                        'value': 'ace/mode/css'
+                    },
+                    {
+                        'textContent': 'curly',
+                        'value': 'ace/mode/curly'
+                    },
+                    {
+                        'textContent': 'c_cpp',
+                        'value': 'ace/mode/c_cpp'
+                    },
+                    {
+                        'textContent': 'dart',
+                        'value': 'ace/mode/dart'
+                    },
+                    {
+                        'textContent': 'diff',
+                        'value': 'ace/mode/diff'
+                    },
+                    {
+                        'textContent': 'django',
+                        'value': 'ace/mode/django'
+                    },
+                    {
+                        'textContent': 'dot',
+                        'value': 'ace/mode/dot'
+                    },
+                    {
+                        'textContent': 'ftl',
+                        'value': 'ace/mode/ftl'
+                    },
+                    {
+                        'textContent': 'glsl',
+                        'value': 'ace/mode/glsl'
+                    },
+                    {
+                        'textContent': 'golang',
+                        'value': 'ace/mode/golang'
+                    },
+                    {
+                        'textContent': 'groovy',
+                        'value': 'ace/mode/groovy'
+                    },
+                    {
+                        'textContent': 'haml',
+                        'value': 'ace/mode/haml'
+                    },
+                    {
+                        'textContent': 'haxe',
+                        'value': 'ace/mode/haxe'
+                    },
+                    {
+                        'textContent': 'html',
+                        'value': 'ace/mode/html'
+                    },
+                    {
+                        'textContent': 'jade',
+                        'value': 'ace/mode/jade'
+                    },
+                    {
+                        'textContent': 'java',
+                        'value': 'ace/mode/java'
+                    },
+                    {
+                        'textContent': 'javascript',
+                        'value': 'ace/mode/javascript'
+                    },
+                    {
+                        'textContent': 'json',
+                        'value': 'ace/mode/json'
+                    },
+                    {
+                        'textContent': 'jsp',
+                        'value': 'ace/mode/jsp'
+                    },
+                    {
+                        'textContent': 'jsx',
+                        'value': 'ace/mode/jsx'
+                    },
+                    {
+                        'textContent': 'latex',
+                        'value': 'ace/mode/latex'
+                    },
+                    {
+                        'textContent': 'less',
+                        'value': 'ace/mode/less'
+                    },
+                    {
+                        'textContent': 'liquid',
+                        'value': 'ace/mode/liquid'
+                    },
+                    {
+                        'textContent': 'lisp',
+                        'value': 'ace/mode/lisp'
+                    },
+                    {
+                        'textContent': 'livescript',
+                        'value': 'ace/mode/livescript'
+                    },
+                    {
+                        'textContent': 'logiql',
+                        'value': 'ace/mode/logiql'
+                    },
+                    {
+                        'textContent': 'lsl',
+                        'value': 'ace/mode/lsl'
+                    },
+                    {
+                        'textContent': 'lua',
+                        'value': 'ace/mode/lua'
+                    },
+                    {
+                        'textContent': 'luapage',
+                        'value': 'ace/mode/luapage'
+                    },
+                    {
+                        'textContent': 'lucene',
+                        'value': 'ace/mode/lucene'
+                    },
+                    {
+                        'textContent': 'makefile',
+                        'value': 'ace/mode/makefile'
+                    },
+                    {
+                        'textContent': 'markdown',
+                        'value': 'ace/mode/markdown'
+                    },
+                    {
+                        'textContent': 'objectivec',
+                        'value': 'ace/mode/objectivec'
+                    },
+                    {
+                        'textContent': 'ocaml',
+                        'value': 'ace/mode/ocaml'
+                    },
+                    {
+                        'textContent': 'pascal',
+                        'value': 'ace/mode/pascal'
+                    },
+                    {
+                        'textContent': 'perl',
+                        'value': 'ace/mode/perl'
+                    },
+                    {
+                        'textContent': 'pgsql',
+                        'value': 'ace/mode/pgsql'
+                    },
+                    {
+                        'textContent': 'php',
+                        'value': 'ace/mode/php'
+                    },
+                    {
+                        'textContent': 'powershell',
+                        'value': 'ace/mode/powershell'
+                    },
+                    {
+                        'textContent': 'python',
+                        'value': 'ace/mode/python'
+                    },
+                    {
+                        'textContent': 'r',
+                        'value': 'ace/mode/r'
+                    },
+                    {
+                        'textContent': 'rdoc',
+                        'value': 'ace/mode/rdoc'
+                    },
+                    {
+                        'textContent': 'rhtml',
+                        'value': 'ace/mode/rhtml'
+                    },
+                    {
+                        'textContent': 'ruby',
+                        'value': 'ace/mode/ruby'
+                    },
+                    {
+                        'textContent': 'sass',
+                        'value': 'ace/mode/sass'
+                    },
+                    {
+                        'textContent': 'scad',
+                        'value': 'ace/mode/scad'
+                    },
+                    {
+                        'textContent': 'scala',
+                        'value': 'ace/mode/scala'
+                    },
+                    {
+                        'textContent': 'scheme',
+                        'value': 'ace/mode/scheme'
+                    },
+                    {
+                        'textContent': 'scss',
+                        'value': 'ace/mode/scss'
+                    },
+                    {
+                        'textContent': 'sh',
+                        'value': 'ace/mode/sh'
+                    },
+                    {
+                        'textContent': 'sql',
+                        'value': 'ace/mode/sql'
+                    },
+                    {
+                        'textContent': 'stylus',
+                        'value': 'ace/mode/stylus'
+                    },
+                    {
+                        'textContent': 'svg',
+                        'value': 'ace/mode/svg'
+                    },
+                    {
+                        'textContent': 'tcl',
+                        'value': 'ace/mode/tcl'
+                    },
+                    {
+                        'textContent': 'tex',
+                        'value': 'ace/mode/tex'
+                    },
+                    {
+                        'textContent': 'text',
+                        'value': 'ace/mode/text'
+                    },
+                    {
+                        'textContent': 'textile',
+                        'value': 'ace/mode/textile'
+                    },
+                    {
+                        'textContent': 'tmsnippet',
+                        'value': 'ace/mode/tmsnippet'
+                    },
+                    {
+                        'textContent': 'tm_snippet',
+                        'value': 'ace/mode/tm_snippet'
+                    },
+                    {
+                        'textContent': 'toml',
+                        'value': 'ace/mode/toml'
+                    },
+                    {
+                        'textContent': 'typescript',
+                        'value': 'ace/mode/typescript'
+                    },
+                    {
+                        'textContent': 'vbscript',
+                        'value': 'ace/mode/vbscript'
+                    },
+                    {
+                        'textContent': 'xml',
+                        'value': 'ace/mode/xml'
+                    },
+                    {
+                        'textContent': 'xquery',
+                        'value': 'ace/mode/xquery'
+                    },
+                    {
+                        'textContent': 'yaml',
+                        'value': 'ace/mode/yaml'
+                    }
+                ]
+            };
+        },
+        {}
+    ],
+    './browser_modules/ckeditor aceSourceView.js': [
+        function (require, module, exports) {
+            module.exports = require('WEt/eN');
+        },
+        {}
+    ],
+    'WEt/eN': [
         function (require, module, exports) {
             /*jslint
                 indent: 4,
@@ -1111,13 +1061,182 @@ require = function (e, t, n, r) {
         },
         {}
     ],
-    './browser_modules/ace editor.js': [
+    './browser_modules/ace editor default settings.js': [
         function (require, module, exports) {
-            module.exports = require('i59kuv');
+            module.exports = require('o9QCoL');
         },
         {}
     ],
-    'i59kuv': [
+    'o9QCoL': [
+        function (require, module, exports) {
+            /*jslint
+                indent: 4,
+                maxerr: 50,
+                white: true,
+                browser: true,
+                vars: true
+            */
+            /*globals
+                module
+            */
+            module.exports = {
+                'setAnimatedScroll': false,
+                'setBehavioursEnabled': true,
+                'setDisplayIndentGuides': true,
+                'setDragDelay': 150,
+                'setFadeFoldWidgets': false,
+                'setHScrollBarAlwaysVisible': false,
+                'setHighlightActiveLine': true,
+                'setHighlightGutterLine': true,
+                'setHighlightSelectedWord': true,
+                'setMode': 'ace/mode/javascript',
+                'setNewLineMode': 'windows',
+                'setOverwrite': false,
+                'setPrintMarginColumn': 80,
+                'setReadOnly': false,
+                'setScrollSpeed': true,
+                'setSelectionStyle': 'line',
+                'setShowFoldWidgets': true,
+                'setShowGutter': true,
+                'setShowInvisibles': false,
+                'setShowPrintMargin': true,
+                'setTabSize': 4,
+                'setTheme': 'ace/theme/twilight',
+                'setUseSoftTabs': true,
+                'setUseWorker': true,
+                'setUseWrapMode': true,
+                'setWrapBehavioursEnabled': true,
+                'setWrapLimit': 80
+            };
+        },
+        {}
+    ],
+    './browser_modules/editor.js': [
+        function (require, module, exports) {
+            module.exports = require('h+sAzN');
+        },
+        {}
+    ],
+    'h+sAzN': [
+        function (require, module, exports) {
+            (function () {
+                /*jslint
+                    indent: 4,
+                    maxerr: 50,
+                    white: true,
+                    browser: true,
+                    vars: true
+                */
+                /*global
+                    FileReader,
+                    module
+                */
+                module.exports = function () {
+                    'use strict';
+                    this.fileName = document.getElementById('fileName');
+                    this.fileName.value = document.title || 'new.js';
+                    this.fileMeta = {};
+                };
+                module.exports.prototype.setEditorValue = function (value) {
+                    'use strict';
+                    throw new Error('this function must be implemented on a per editor basis');
+                };
+                module.exports.prototype.save = function () {
+                    'use strict';
+                    throw new Error('this function must be implemented on a per editor basis');
+                };
+                module.exports.prototype.setPageTitle = function (title) {
+                    'use strict';
+                    document.getElementsByTagName('title')[0].textContent = title;
+                    this.fileName.value = title;
+                };
+                module.exports.prototype.catchDroppedFiles = function (dropElement, callback) {
+                    'use strict';
+                    function catchAndDoNothing(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                    }
+                    function drop(e) {
+                        catchAndDoNothing(e);
+                        callback(e.dataTransfer.files);
+                    }
+                    function dragAndDropHook() {
+                        dropElement.addEventListener('dragenter', catchAndDoNothing, false);
+                        dropElement.addEventListener('dragover', catchAndDoNothing, false);
+                        dropElement.addEventListener('drop', drop, false);
+                    }
+                    dragAndDropHook();
+                };
+                module.exports.prototype.loadFile = function (files, callback) {
+                    'use strict';
+                    var my = this;
+                    var file = files[0];
+                    if (file) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var contents = e.target.result;
+                            my.fileMeta = file;
+                            my.setPageTitle(file.name);
+                            my.setEditorValue(contents);
+                            if (callback) {
+                                callback();
+                            }
+                        };
+                        reader.readAsText(file);
+                    } else {
+                        throw new Error('Failed to load file');
+                    }
+                };
+                module.exports.prototype.overlayPage = function (contentElement, top, right, bottom, left) {
+                    'use strict';
+                    var div = document.createElement('div');
+                    var contentContainer = document.createElement('div');
+                    contentContainer.style.cssText = 'margin: 0px; padding: 0px; border: 0px;' + 'overflow: auto;';
+                    contentElement.style.cssText = contentElement.style.cssText + 'overflow: auto;';
+                    contentContainer.appendChild(contentElement);
+                    var cl = document.createElement('img');
+                    if (top) {
+                        top = 'top: ' + top + ';';
+                    } else {
+                        top = '';
+                    }
+                    if (right) {
+                        right = 'right: ' + right + ';';
+                    } else {
+                        right = '';
+                    }
+                    if (bottom) {
+                        bottom = 'bottom: ' + bottom + ';';
+                    } else {
+                        bottom = '';
+                    }
+                    if (left) {
+                        left = 'left: ' + left + ';';
+                    } else {
+                        left = '';
+                    }
+                    cl.src = '/famfamfam_silk_icons_v013/icons/cross.png';
+                    cl.style.cssText = 'margin: 5px 5px 0 0; padding: 0; ' + 'float: right; width: 25px;';
+                    div.style.cssText = 'margin:0; padding:0; position: absolute;' + top + right + bottom + left + 'z-index:9999; background-color:white; color:black; overflow: auto;';
+                    div.appendChild(cl);
+                    div.appendChild(contentContainer);
+                    document.body.appendChild(div);
+                    cl.addEventListener('click', function (e) {
+                        div.parentNode.removeChild(div);
+                        div = null;
+                    });
+                };
+            }());
+        },
+        {}
+    ],
+    './browser_modules/ace editor.js': [
+        function (require, module, exports) {
+            module.exports = require('R8Ba+v');
+        },
+        {}
+    ],
+    'R8Ba+v': [
         function (require, module, exports) {
             (function () {
                 /*jslint
@@ -1415,150 +1534,19 @@ require = function (e, t, n, r) {
             }());
         },
         {
-            'atropa-jsformatter': '4tKLo4',
-            './editor.js': 'XD97sj',
-            './ace editor default settings.js': 'k9z+hH',
-            './ace editor settings menu options.js': 'HCa7Jr'
+            'atropa-jsformatter': 'yhbTZ0',
+            './editor.js': 'h+sAzN',
+            './ace editor default settings.js': 'o9QCoL',
+            './ace editor settings menu options.js': '5QF9Qj'
         }
-    ],
-    './browser_modules/editor.js': [
-        function (require, module, exports) {
-            module.exports = require('XD97sj');
-        },
-        {}
-    ],
-    'XD97sj': [
-        function (require, module, exports) {
-            (function () {
-                /*jslint
-                    indent: 4,
-                    maxerr: 50,
-                    white: true,
-                    browser: true,
-                    vars: true
-                */
-                /*global
-                    FileReader,
-                    module
-                */
-                module.exports = function () {
-                    'use strict';
-                    this.fileName = document.getElementById('fileName');
-                    this.fileName.value = document.title || 'new.js';
-                    this.fileMeta = {};
-                };
-                module.exports.prototype.setEditorValue = function (value) {
-                    'use strict';
-                    throw new Error('this function must be implemented on a per editor basis');
-                };
-                module.exports.prototype.save = function () {
-                    'use strict';
-                    throw new Error('this function must be implemented on a per editor basis');
-                };
-                module.exports.prototype.setPageTitle = function (title) {
-                    'use strict';
-                    document.getElementsByTagName('title')[0].textContent = title;
-                    this.fileName.value = title;
-                };
-                module.exports.prototype.catchDroppedFiles = function (dropElement, callback) {
-                    'use strict';
-                    function catchAndDoNothing(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                    }
-                    function drop(e) {
-                        catchAndDoNothing(e);
-                        callback(e.dataTransfer.files);
-                    }
-                    function dragAndDropHook() {
-                        dropElement.addEventListener('dragenter', catchAndDoNothing, false);
-                        dropElement.addEventListener('dragover', catchAndDoNothing, false);
-                        dropElement.addEventListener('drop', drop, false);
-                    }
-                    dragAndDropHook();
-                };
-                module.exports.prototype.loadFile = function (files, callback) {
-                    'use strict';
-                    var my = this;
-                    var file = files[0];
-                    if (file) {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            var contents = e.target.result;
-                            my.fileMeta = file;
-                            my.setPageTitle(file.name);
-                            my.setEditorValue(contents);
-                            if (callback) {
-                                callback();
-                            }
-                        };
-                        reader.readAsText(file);
-                    } else {
-                        throw new Error('Failed to load file');
-                    }
-                };
-                module.exports.prototype.overlayPage = function (contentElement, top, right, bottom, left) {
-                    'use strict';
-                    var div = document.createElement('div');
-                    var contentContainer = document.createElement('div');
-                    contentContainer.style.cssText = 'margin: 0px; padding: 0px; border: 0px;' + 'overflow: auto;';
-                    contentElement.style.cssText = contentElement.style.cssText + 'overflow: auto;';
-                    contentContainer.appendChild(contentElement);
-                    var cl = document.createElement('img');
-                    if (top) {
-                        top = 'top: ' + top + ';';
-                    } else {
-                        top = '';
-                    }
-                    if (right) {
-                        right = 'right: ' + right + ';';
-                    } else {
-                        right = '';
-                    }
-                    if (bottom) {
-                        bottom = 'bottom: ' + bottom + ';';
-                    } else {
-                        bottom = '';
-                    }
-                    if (left) {
-                        left = 'left: ' + left + ';';
-                    } else {
-                        left = '';
-                    }
-                    cl.src = '/famfamfam_silk_icons_v013/icons/cross.png';
-                    cl.style.cssText = 'margin: 5px 5px 0 0; padding: 0; ' + 'float: right; width: 25px;';
-                    div.style.cssText = 'margin:0; padding:0; position: absolute;' + top + right + bottom + left + 'z-index:9999; background-color:white; color:black; overflow: auto;';
-                    div.appendChild(cl);
-                    div.appendChild(contentContainer);
-                    document.body.appendChild(div);
-                    cl.addEventListener('click', function (e) {
-                        div.parentNode.removeChild(div);
-                        div = null;
-                    });
-                };
-            }());
-        },
-        {}
-    ],
-    'atropa-jsformatter': [
-        function (require, module, exports) {
-            module.exports = require('4tKLo4');
-        },
-        {}
-    ],
-    '4tKLo4': [
-        function (require, module, exports) {
-            module.exports = require('./src/atropa-jsformatter.js');
-        },
-        { './src/atropa-jsformatter.js': 2 }
     ],
     './browser_modules/ckeditor.js': [
         function (require, module, exports) {
-            module.exports = require('HmmaXS');
+            module.exports = require('fLaY4S');
         },
         {}
     ],
-    'HmmaXS': [
+    'fLaY4S': [
         function (require, module, exports) {
             (function () {
                 /*jslint
@@ -1663,8 +1651,8 @@ require = function (e, t, n, r) {
             }());
         },
         {
-            './editor.js': 'XD97sj',
-            './ckeditor aceSourceView.js': 'a5pW2C'
+            './editor.js': 'h+sAzN',
+            './ckeditor aceSourceView.js': 'WEt/eN'
         }
     ],
     1: [
@@ -1892,6 +1880,18 @@ require = function (e, t, n, r) {
             }
         },
         {}
+    ],
+    'atropa-jsformatter': [
+        function (require, module, exports) {
+            module.exports = require('yhbTZ0');
+        },
+        {}
+    ],
+    'yhbTZ0': [
+        function (require, module, exports) {
+            module.exports = require('./src/atropa-jsformatter.js');
+        },
+        { './src/atropa-jsformatter.js': 2 }
     ],
     3: [
         function (require, module, exports) {
@@ -7402,28 +7402,11 @@ require = function (e, t, n, r) {
         },
         {
             './package.json': 6,
-            'source-map': 7,
-            'estraverse': 8
+            'estraverse': 7,
+            'source-map': 8
         }
     ],
     7: [
-        function (require, module, exports) {
-            /*
-             * Copyright 2009-2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE.txt or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            exports.SourceMapGenerator = require('./source-map/source-map-generator').SourceMapGenerator;
-            exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
-            exports.SourceNode = require('./source-map/source-node').SourceNode;
-        },
-        {
-            './source-map/source-map-generator': 9,
-            './source-map/source-map-consumer': 10,
-            './source-map/source-node': 11
-        }
-    ],
-    8: [
         function (require, module, exports) {
             (function () {
                 /*
@@ -7803,6 +7786,23 @@ require = function (e, t, n, r) {
         },
         {}
     ],
+    8: [
+        function (require, module, exports) {
+            /*
+             * Copyright 2009-2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE.txt or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            exports.SourceMapGenerator = require('./source-map/source-map-generator').SourceMapGenerator;
+            exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
+            exports.SourceNode = require('./source-map/source-node').SourceNode;
+        },
+        {
+            './source-map/source-map-generator': 9,
+            './source-map/source-map-consumer': 10,
+            './source-map/source-node': 11
+        }
+    ],
     9: [
         function (require, module, exports) {
             /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -8111,291 +8111,6 @@ require = function (e, t, n, r) {
             './base64-vlq': 12,
             './util': 13,
             './array-set': 14,
-            'amdefine': 15
-        }
-    ],
-    11: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
-                /**
-                 * SourceNodes provide a way to abstract over interpolating/concatenating
-                 * snippets of generated JavaScript source code while maintaining the line and
-                 * column information associated with the original source code.
-                 *
-                 * @param aLine The original line number.
-                 * @param aColumn The original column number.
-                 * @param aSource The original source's filename.
-                 * @param aChunks Optional. An array of strings which are snippets of
-                 *        generated JS, or other SourceNodes.
-                 * @param aName The original identifier.
-                 */
-                function SourceNode(aLine, aColumn, aSource, aChunks, aName) {
-                    this.children = [];
-                    this.line = aLine === undefined ? null : aLine;
-                    this.column = aColumn === undefined ? null : aColumn;
-                    this.source = aSource === undefined ? null : aSource;
-                    this.name = aName === undefined ? null : aName;
-                    if (aChunks != null)
-                        this.add(aChunks);
-                }
-                /**
-                 * Creates a SourceNode from generated code and a SourceMapConsumer.
-                 *
-                 * @param aGeneratedCode The generated code
-                 * @param aSourceMapConsumer The SourceMap for the generated code
-                 */
-                SourceNode.fromStringWithSourceMap = function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer) {
-                    // The SourceNode we want to fill with the generated code
-                    // and the SourceMap
-                    var node = new SourceNode();
-                    // The generated code
-                    // Processed fragments are removed from this array.
-                    var remainingLines = aGeneratedCode.split('\n');
-                    // We need to remember the position of "remainingLines"
-                    var lastGeneratedLine = 1, lastGeneratedColumn = 0;
-                    // The generate SourceNodes we need a code range.
-                    // To extract it current and last mapping is used.
-                    // Here we store the last mapping.
-                    var lastMapping = null;
-                    aSourceMapConsumer.eachMapping(function (mapping) {
-                        if (lastMapping === null) {
-                            // We add the generated code until the first mapping
-                            // to the SourceNode without any mapping.
-                            // Each line is added as separate string.
-                            while (lastGeneratedLine < mapping.generatedLine) {
-                                node.add(remainingLines.shift() + '\n');
-                                lastGeneratedLine++;
-                            }
-                            if (lastGeneratedColumn < mapping.generatedColumn) {
-                                var nextLine = remainingLines[0];
-                                node.add(nextLine.substr(0, mapping.generatedColumn));
-                                remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-                                lastGeneratedColumn = mapping.generatedColumn;
-                            }
-                        } else {
-                            // We add the code from "lastMapping" to "mapping":
-                            // First check if there is a new line in between.
-                            if (lastGeneratedLine < mapping.generatedLine) {
-                                var code = '';
-                                // Associate full lines with "lastMapping"
-                                do {
-                                    code += remainingLines.shift() + '\n';
-                                    lastGeneratedLine++;
-                                    lastGeneratedColumn = 0;
-                                } while (lastGeneratedLine < mapping.generatedLine);
-                                // When we reached the correct line, we add code until we
-                                // reach the correct column too.
-                                if (lastGeneratedColumn < mapping.generatedColumn) {
-                                    var nextLine = remainingLines[0];
-                                    code += nextLine.substr(0, mapping.generatedColumn);
-                                    remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-                                    lastGeneratedColumn = mapping.generatedColumn;
-                                }
-                                // Create the SourceNode.
-                                addMappingWithCode(lastMapping, code);
-                            } else {
-                                // There is no new line in between.
-                                // Associate the code between "lastGeneratedColumn" and
-                                // "mapping.generatedColumn" with "lastMapping"
-                                var nextLine = remainingLines[0];
-                                var code = nextLine.substr(0, mapping.generatedColumn - lastGeneratedColumn);
-                                remainingLines[0] = nextLine.substr(mapping.generatedColumn - lastGeneratedColumn);
-                                lastGeneratedColumn = mapping.generatedColumn;
-                                addMappingWithCode(lastMapping, code);
-                            }
-                        }
-                        lastMapping = mapping;
-                    }, this);
-                    // We have processed all mappings.
-                    // Associate the remaining code in the current line with "lastMapping"
-                    // and add the remaining lines without any mapping
-                    addMappingWithCode(lastMapping, remainingLines.join('\n'));
-                    return node;
-                    function addMappingWithCode(mapping, code) {
-                        if (mapping.source === undefined) {
-                            node.add(code);
-                        } else {
-                            node.add(new SourceNode(mapping.originalLine, mapping.originalColumn, mapping.source, code, mapping.name));
-                        }
-                    }
-                };
-                /**
-                 * Add a chunk of generated JS to this source node.
-                 *
-                 * @param aChunk A string snippet of generated JS code, another instance of
-                 *        SourceNode, or an array where each member is one of those things.
-                 */
-                SourceNode.prototype.add = function SourceNode_add(aChunk) {
-                    if (Array.isArray(aChunk)) {
-                        aChunk.forEach(function (chunk) {
-                            this.add(chunk);
-                        }, this);
-                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
-                        if (aChunk) {
-                            this.children.push(aChunk);
-                        }
-                    } else {
-                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
-                    }
-                    return this;
-                };
-                /**
-                 * Add a chunk of generated JS to the beginning of this source node.
-                 *
-                 * @param aChunk A string snippet of generated JS code, another instance of
-                 *        SourceNode, or an array where each member is one of those things.
-                 */
-                SourceNode.prototype.prepend = function SourceNode_prepend(aChunk) {
-                    if (Array.isArray(aChunk)) {
-                        for (var i = aChunk.length - 1; i >= 0; i--) {
-                            this.prepend(aChunk[i]);
-                        }
-                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
-                        this.children.unshift(aChunk);
-                    } else {
-                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
-                    }
-                    return this;
-                };
-                /**
-                 * Walk over the tree of JS snippets in this node and its children. The
-                 * walking function is called once for each snippet of JS and is passed that
-                 * snippet and the its original associated source's line/column location.
-                 *
-                 * @param aFn The traversal function.
-                 */
-                SourceNode.prototype.walk = function SourceNode_walk(aFn) {
-                    this.children.forEach(function (chunk) {
-                        if (chunk instanceof SourceNode) {
-                            chunk.walk(aFn);
-                        } else {
-                            if (chunk !== '') {
-                                aFn(chunk, {
-                                    source: this.source,
-                                    line: this.line,
-                                    column: this.column,
-                                    name: this.name
-                                });
-                            }
-                        }
-                    }, this);
-                };
-                /**
-                 * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
-                 * each of `this.children`.
-                 *
-                 * @param aSep The separator.
-                 */
-                SourceNode.prototype.join = function SourceNode_join(aSep) {
-                    var newChildren;
-                    var i;
-                    var len = this.children.length;
-                    if (len > 0) {
-                        newChildren = [];
-                        for (i = 0; i < len - 1; i++) {
-                            newChildren.push(this.children[i]);
-                            newChildren.push(aSep);
-                        }
-                        newChildren.push(this.children[i]);
-                        this.children = newChildren;
-                    }
-                    return this;
-                };
-                /**
-                 * Call String.prototype.replace on the very right-most source snippet. Useful
-                 * for trimming whitespace from the end of a source node, etc.
-                 *
-                 * @param aPattern The pattern to replace.
-                 * @param aReplacement The thing to replace the pattern with.
-                 */
-                SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
-                    var lastChild = this.children[this.children.length - 1];
-                    if (lastChild instanceof SourceNode) {
-                        lastChild.replaceRight(aPattern, aReplacement);
-                    } else if (typeof lastChild === 'string') {
-                        this.children[this.children.length - 1] = lastChild.replace(aPattern, aReplacement);
-                    } else {
-                        this.children.push(''.replace(aPattern, aReplacement));
-                    }
-                    return this;
-                };
-                /**
-                 * Return the string representation of this source node. Walks over the tree
-                 * and concatenates all the various snippets together to one string.
-                 */
-                SourceNode.prototype.toString = function SourceNode_toString() {
-                    var str = '';
-                    this.walk(function (chunk) {
-                        str += chunk;
-                    });
-                    return str;
-                };
-                /**
-                 * Returns the string representation of this source node along with a source
-                 * map.
-                 */
-                SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSourceMap(aArgs) {
-                    var generated = {
-                            code: '',
-                            line: 1,
-                            column: 0
-                        };
-                    var map = new SourceMapGenerator(aArgs);
-                    var sourceMappingActive = false;
-                    this.walk(function (chunk, original) {
-                        generated.code += chunk;
-                        if (original.source !== null && original.line !== null && original.column !== null) {
-                            map.addMapping({
-                                source: original.source,
-                                original: {
-                                    line: original.line,
-                                    column: original.column
-                                },
-                                generated: {
-                                    line: generated.line,
-                                    column: generated.column
-                                },
-                                name: original.name
-                            });
-                            sourceMappingActive = true;
-                        } else if (sourceMappingActive) {
-                            map.addMapping({
-                                generated: {
-                                    line: generated.line,
-                                    column: generated.column
-                                }
-                            });
-                            sourceMappingActive = false;
-                        }
-                        chunk.split('').forEach(function (ch) {
-                            if (ch === '\n') {
-                                generated.line++;
-                                generated.column = 0;
-                            } else {
-                                generated.column++;
-                            }
-                        });
-                    });
-                    return {
-                        code: generated.code,
-                        map: map
-                    };
-                };
-                exports.SourceNode = SourceNode;
-            });
-        },
-        {
-            './source-map-generator': 9,
             'amdefine': 15
         }
     ],
@@ -8762,9 +8477,294 @@ require = function (e, t, n, r) {
         },
         {
             './util': 13,
-            './binary-search': 16,
             './array-set': 14,
             './base64-vlq': 12,
+            './binary-search': 16,
+            'amdefine': 15
+        }
+    ],
+    11: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
+                /**
+                 * SourceNodes provide a way to abstract over interpolating/concatenating
+                 * snippets of generated JavaScript source code while maintaining the line and
+                 * column information associated with the original source code.
+                 *
+                 * @param aLine The original line number.
+                 * @param aColumn The original column number.
+                 * @param aSource The original source's filename.
+                 * @param aChunks Optional. An array of strings which are snippets of
+                 *        generated JS, or other SourceNodes.
+                 * @param aName The original identifier.
+                 */
+                function SourceNode(aLine, aColumn, aSource, aChunks, aName) {
+                    this.children = [];
+                    this.line = aLine === undefined ? null : aLine;
+                    this.column = aColumn === undefined ? null : aColumn;
+                    this.source = aSource === undefined ? null : aSource;
+                    this.name = aName === undefined ? null : aName;
+                    if (aChunks != null)
+                        this.add(aChunks);
+                }
+                /**
+                 * Creates a SourceNode from generated code and a SourceMapConsumer.
+                 *
+                 * @param aGeneratedCode The generated code
+                 * @param aSourceMapConsumer The SourceMap for the generated code
+                 */
+                SourceNode.fromStringWithSourceMap = function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer) {
+                    // The SourceNode we want to fill with the generated code
+                    // and the SourceMap
+                    var node = new SourceNode();
+                    // The generated code
+                    // Processed fragments are removed from this array.
+                    var remainingLines = aGeneratedCode.split('\n');
+                    // We need to remember the position of "remainingLines"
+                    var lastGeneratedLine = 1, lastGeneratedColumn = 0;
+                    // The generate SourceNodes we need a code range.
+                    // To extract it current and last mapping is used.
+                    // Here we store the last mapping.
+                    var lastMapping = null;
+                    aSourceMapConsumer.eachMapping(function (mapping) {
+                        if (lastMapping === null) {
+                            // We add the generated code until the first mapping
+                            // to the SourceNode without any mapping.
+                            // Each line is added as separate string.
+                            while (lastGeneratedLine < mapping.generatedLine) {
+                                node.add(remainingLines.shift() + '\n');
+                                lastGeneratedLine++;
+                            }
+                            if (lastGeneratedColumn < mapping.generatedColumn) {
+                                var nextLine = remainingLines[0];
+                                node.add(nextLine.substr(0, mapping.generatedColumn));
+                                remainingLines[0] = nextLine.substr(mapping.generatedColumn);
+                                lastGeneratedColumn = mapping.generatedColumn;
+                            }
+                        } else {
+                            // We add the code from "lastMapping" to "mapping":
+                            // First check if there is a new line in between.
+                            if (lastGeneratedLine < mapping.generatedLine) {
+                                var code = '';
+                                // Associate full lines with "lastMapping"
+                                do {
+                                    code += remainingLines.shift() + '\n';
+                                    lastGeneratedLine++;
+                                    lastGeneratedColumn = 0;
+                                } while (lastGeneratedLine < mapping.generatedLine);
+                                // When we reached the correct line, we add code until we
+                                // reach the correct column too.
+                                if (lastGeneratedColumn < mapping.generatedColumn) {
+                                    var nextLine = remainingLines[0];
+                                    code += nextLine.substr(0, mapping.generatedColumn);
+                                    remainingLines[0] = nextLine.substr(mapping.generatedColumn);
+                                    lastGeneratedColumn = mapping.generatedColumn;
+                                }
+                                // Create the SourceNode.
+                                addMappingWithCode(lastMapping, code);
+                            } else {
+                                // There is no new line in between.
+                                // Associate the code between "lastGeneratedColumn" and
+                                // "mapping.generatedColumn" with "lastMapping"
+                                var nextLine = remainingLines[0];
+                                var code = nextLine.substr(0, mapping.generatedColumn - lastGeneratedColumn);
+                                remainingLines[0] = nextLine.substr(mapping.generatedColumn - lastGeneratedColumn);
+                                lastGeneratedColumn = mapping.generatedColumn;
+                                addMappingWithCode(lastMapping, code);
+                            }
+                        }
+                        lastMapping = mapping;
+                    }, this);
+                    // We have processed all mappings.
+                    // Associate the remaining code in the current line with "lastMapping"
+                    // and add the remaining lines without any mapping
+                    addMappingWithCode(lastMapping, remainingLines.join('\n'));
+                    return node;
+                    function addMappingWithCode(mapping, code) {
+                        if (mapping.source === undefined) {
+                            node.add(code);
+                        } else {
+                            node.add(new SourceNode(mapping.originalLine, mapping.originalColumn, mapping.source, code, mapping.name));
+                        }
+                    }
+                };
+                /**
+                 * Add a chunk of generated JS to this source node.
+                 *
+                 * @param aChunk A string snippet of generated JS code, another instance of
+                 *        SourceNode, or an array where each member is one of those things.
+                 */
+                SourceNode.prototype.add = function SourceNode_add(aChunk) {
+                    if (Array.isArray(aChunk)) {
+                        aChunk.forEach(function (chunk) {
+                            this.add(chunk);
+                        }, this);
+                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
+                        if (aChunk) {
+                            this.children.push(aChunk);
+                        }
+                    } else {
+                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
+                    }
+                    return this;
+                };
+                /**
+                 * Add a chunk of generated JS to the beginning of this source node.
+                 *
+                 * @param aChunk A string snippet of generated JS code, another instance of
+                 *        SourceNode, or an array where each member is one of those things.
+                 */
+                SourceNode.prototype.prepend = function SourceNode_prepend(aChunk) {
+                    if (Array.isArray(aChunk)) {
+                        for (var i = aChunk.length - 1; i >= 0; i--) {
+                            this.prepend(aChunk[i]);
+                        }
+                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
+                        this.children.unshift(aChunk);
+                    } else {
+                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
+                    }
+                    return this;
+                };
+                /**
+                 * Walk over the tree of JS snippets in this node and its children. The
+                 * walking function is called once for each snippet of JS and is passed that
+                 * snippet and the its original associated source's line/column location.
+                 *
+                 * @param aFn The traversal function.
+                 */
+                SourceNode.prototype.walk = function SourceNode_walk(aFn) {
+                    this.children.forEach(function (chunk) {
+                        if (chunk instanceof SourceNode) {
+                            chunk.walk(aFn);
+                        } else {
+                            if (chunk !== '') {
+                                aFn(chunk, {
+                                    source: this.source,
+                                    line: this.line,
+                                    column: this.column,
+                                    name: this.name
+                                });
+                            }
+                        }
+                    }, this);
+                };
+                /**
+                 * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
+                 * each of `this.children`.
+                 *
+                 * @param aSep The separator.
+                 */
+                SourceNode.prototype.join = function SourceNode_join(aSep) {
+                    var newChildren;
+                    var i;
+                    var len = this.children.length;
+                    if (len > 0) {
+                        newChildren = [];
+                        for (i = 0; i < len - 1; i++) {
+                            newChildren.push(this.children[i]);
+                            newChildren.push(aSep);
+                        }
+                        newChildren.push(this.children[i]);
+                        this.children = newChildren;
+                    }
+                    return this;
+                };
+                /**
+                 * Call String.prototype.replace on the very right-most source snippet. Useful
+                 * for trimming whitespace from the end of a source node, etc.
+                 *
+                 * @param aPattern The pattern to replace.
+                 * @param aReplacement The thing to replace the pattern with.
+                 */
+                SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
+                    var lastChild = this.children[this.children.length - 1];
+                    if (lastChild instanceof SourceNode) {
+                        lastChild.replaceRight(aPattern, aReplacement);
+                    } else if (typeof lastChild === 'string') {
+                        this.children[this.children.length - 1] = lastChild.replace(aPattern, aReplacement);
+                    } else {
+                        this.children.push(''.replace(aPattern, aReplacement));
+                    }
+                    return this;
+                };
+                /**
+                 * Return the string representation of this source node. Walks over the tree
+                 * and concatenates all the various snippets together to one string.
+                 */
+                SourceNode.prototype.toString = function SourceNode_toString() {
+                    var str = '';
+                    this.walk(function (chunk) {
+                        str += chunk;
+                    });
+                    return str;
+                };
+                /**
+                 * Returns the string representation of this source node along with a source
+                 * map.
+                 */
+                SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSourceMap(aArgs) {
+                    var generated = {
+                            code: '',
+                            line: 1,
+                            column: 0
+                        };
+                    var map = new SourceMapGenerator(aArgs);
+                    var sourceMappingActive = false;
+                    this.walk(function (chunk, original) {
+                        generated.code += chunk;
+                        if (original.source !== null && original.line !== null && original.column !== null) {
+                            map.addMapping({
+                                source: original.source,
+                                original: {
+                                    line: original.line,
+                                    column: original.column
+                                },
+                                generated: {
+                                    line: generated.line,
+                                    column: generated.column
+                                },
+                                name: original.name
+                            });
+                            sourceMappingActive = true;
+                        } else if (sourceMappingActive) {
+                            map.addMapping({
+                                generated: {
+                                    line: generated.line,
+                                    column: generated.column
+                                }
+                            });
+                            sourceMappingActive = false;
+                        }
+                        chunk.split('').forEach(function (ch) {
+                            if (ch === '\n') {
+                                generated.line++;
+                                generated.column = 0;
+                            } else {
+                                generated.column++;
+                            }
+                        });
+                    });
+                    return {
+                        code: generated.code,
+                        map: map
+                    };
+                };
+                exports.SourceNode = SourceNode;
+            });
+        },
+        {
+            './source-map-generator': 9,
             'amdefine': 15
         }
     ],
@@ -9084,11 +9084,162 @@ require = function (e, t, n, r) {
                     return define;
                 }
                 module.exports = amdefine;
-            }(require('__browserify_process'), '/node_modules\\atropa-jsformatter\\node_modules\\escodegen\\node_modules\\source-map\\node_modules\\amdefine\\amdefine.js'));
+            }(require('__browserify_process'), '/Desktop\\atropa-ide\\node_modules\\atropa-jsformatter\\node_modules\\escodegen\\node_modules\\source-map\\node_modules\\amdefine\\amdefine.js'));
         },
         {
             'path': 18,
             '__browserify_process': 17
+        }
+    ],
+    13: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                /**
+                 * This is a helper function for getting values from parameter/options
+                 * objects.
+                 *
+                 * @param args The object we are extracting values from
+                 * @param name The name of the property we are getting.
+                 * @param defaultValue An optional value to return if the property is missing
+                 * from the object. If this is not specified and the property is missing, an
+                 * error will be thrown.
+                 */
+                function getArg(aArgs, aName, aDefaultValue) {
+                    if (aName in aArgs) {
+                        return aArgs[aName];
+                    } else if (arguments.length === 3) {
+                        return aDefaultValue;
+                    } else {
+                        throw new Error('"' + aName + '" is a required argument.');
+                    }
+                }
+                exports.getArg = getArg;
+                function join(aRoot, aPath) {
+                    return aPath.charAt(0) === '/' ? aPath : aRoot.replace(/\/$/, '') + '/' + aPath;
+                }
+                exports.join = join;
+                /**
+                 * Because behavior goes wacky when you set `__proto__` on objects, we
+                 * have to prefix all the strings in our set with an arbitrary character.
+                 *
+                 * See https://github.com/mozilla/source-map/pull/31 and
+                 * https://github.com/mozilla/source-map/issues/30
+                 *
+                 * @param String aStr
+                 */
+                function toSetString(aStr) {
+                    return '$' + aStr;
+                }
+                exports.toSetString = toSetString;
+                function relative(aRoot, aPath) {
+                    aRoot = aRoot.replace(/\/$/, '');
+                    return aPath.indexOf(aRoot + '/') === 0 ? aPath.substr(aRoot.length + 1) : aPath;
+                }
+                exports.relative = relative;
+            });
+        },
+        { 'amdefine': 15 }
+    ],
+    14: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                var util = require('./util');
+                /**
+                 * A data structure which is a combination of an array and a set. Adding a new
+                 * member is O(1), testing for membership is O(1), and finding the index of an
+                 * element is O(1). Removing elements from the set is not supported. Only
+                 * strings are supported for membership.
+                 */
+                function ArraySet() {
+                    this._array = [];
+                    this._set = {};
+                }
+                /**
+                 * Static method for creating ArraySet instances from an existing array.
+                 */
+                ArraySet.fromArray = function ArraySet_fromArray(aArray) {
+                    var set = new ArraySet();
+                    for (var i = 0, len = aArray.length; i < len; i++) {
+                        set.add(aArray[i]);
+                    }
+                    return set;
+                };
+                /**
+                 * Add the given string to this set.
+                 *
+                 * @param String aStr
+                 */
+                ArraySet.prototype.add = function ArraySet_add(aStr) {
+                    if (this.has(aStr)) {
+                        // Already a member; nothing to do.
+                        return;
+                    }
+                    var idx = this._array.length;
+                    this._array.push(aStr);
+                    this._set[util.toSetString(aStr)] = idx;
+                };
+                /**
+                 * Is the given string a member of this set?
+                 *
+                 * @param String aStr
+                 */
+                ArraySet.prototype.has = function ArraySet_has(aStr) {
+                    return Object.prototype.hasOwnProperty.call(this._set, util.toSetString(aStr));
+                };
+                /**
+                 * What is the index of the given string in the array?
+                 *
+                 * @param String aStr
+                 */
+                ArraySet.prototype.indexOf = function ArraySet_indexOf(aStr) {
+                    if (this.has(aStr)) {
+                        return this._set[util.toSetString(aStr)];
+                    }
+                    throw new Error('"' + aStr + '" is not in the set.');
+                };
+                /**
+                 * What is the element at the given index?
+                 *
+                 * @param Number aIdx
+                 */
+                ArraySet.prototype.at = function ArraySet_at(aIdx) {
+                    if (aIdx >= 0 && aIdx < this._array.length) {
+                        return this._array[aIdx];
+                    }
+                    throw new Error('No element indexed by ' + aIdx);
+                };
+                /**
+                 * Returns the array representation of this set (which has the proper indices
+                 * indicated by indexOf). Note that this is a copy of the internal array used
+                 * for storing the members so that no one can mess with internal state.
+                 */
+                ArraySet.prototype.toArray = function ArraySet_toArray() {
+                    return this._array.slice();
+                };
+                exports.ArraySet = ArraySet;
+            });
+        },
+        {
+            './util': 13,
+            'amdefine': 15
         }
     ],
     12: [
@@ -9222,157 +9373,6 @@ require = function (e, t, n, r) {
             './base64': 19,
             'amdefine': 15
         }
-    ],
-    14: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                var util = require('./util');
-                /**
-                 * A data structure which is a combination of an array and a set. Adding a new
-                 * member is O(1), testing for membership is O(1), and finding the index of an
-                 * element is O(1). Removing elements from the set is not supported. Only
-                 * strings are supported for membership.
-                 */
-                function ArraySet() {
-                    this._array = [];
-                    this._set = {};
-                }
-                /**
-                 * Static method for creating ArraySet instances from an existing array.
-                 */
-                ArraySet.fromArray = function ArraySet_fromArray(aArray) {
-                    var set = new ArraySet();
-                    for (var i = 0, len = aArray.length; i < len; i++) {
-                        set.add(aArray[i]);
-                    }
-                    return set;
-                };
-                /**
-                 * Add the given string to this set.
-                 *
-                 * @param String aStr
-                 */
-                ArraySet.prototype.add = function ArraySet_add(aStr) {
-                    if (this.has(aStr)) {
-                        // Already a member; nothing to do.
-                        return;
-                    }
-                    var idx = this._array.length;
-                    this._array.push(aStr);
-                    this._set[util.toSetString(aStr)] = idx;
-                };
-                /**
-                 * Is the given string a member of this set?
-                 *
-                 * @param String aStr
-                 */
-                ArraySet.prototype.has = function ArraySet_has(aStr) {
-                    return Object.prototype.hasOwnProperty.call(this._set, util.toSetString(aStr));
-                };
-                /**
-                 * What is the index of the given string in the array?
-                 *
-                 * @param String aStr
-                 */
-                ArraySet.prototype.indexOf = function ArraySet_indexOf(aStr) {
-                    if (this.has(aStr)) {
-                        return this._set[util.toSetString(aStr)];
-                    }
-                    throw new Error('"' + aStr + '" is not in the set.');
-                };
-                /**
-                 * What is the element at the given index?
-                 *
-                 * @param Number aIdx
-                 */
-                ArraySet.prototype.at = function ArraySet_at(aIdx) {
-                    if (aIdx >= 0 && aIdx < this._array.length) {
-                        return this._array[aIdx];
-                    }
-                    throw new Error('No element indexed by ' + aIdx);
-                };
-                /**
-                 * Returns the array representation of this set (which has the proper indices
-                 * indicated by indexOf). Note that this is a copy of the internal array used
-                 * for storing the members so that no one can mess with internal state.
-                 */
-                ArraySet.prototype.toArray = function ArraySet_toArray() {
-                    return this._array.slice();
-                };
-                exports.ArraySet = ArraySet;
-            });
-        },
-        {
-            './util': 13,
-            'amdefine': 15
-        }
-    ],
-    13: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                /**
-                 * This is a helper function for getting values from parameter/options
-                 * objects.
-                 *
-                 * @param args The object we are extracting values from
-                 * @param name The name of the property we are getting.
-                 * @param defaultValue An optional value to return if the property is missing
-                 * from the object. If this is not specified and the property is missing, an
-                 * error will be thrown.
-                 */
-                function getArg(aArgs, aName, aDefaultValue) {
-                    if (aName in aArgs) {
-                        return aArgs[aName];
-                    } else if (arguments.length === 3) {
-                        return aDefaultValue;
-                    } else {
-                        throw new Error('"' + aName + '" is a required argument.');
-                    }
-                }
-                exports.getArg = getArg;
-                function join(aRoot, aPath) {
-                    return aPath.charAt(0) === '/' ? aPath : aRoot.replace(/\/$/, '') + '/' + aPath;
-                }
-                exports.join = join;
-                /**
-                 * Because behavior goes wacky when you set `__proto__` on objects, we
-                 * have to prefix all the strings in our set with an arbitrary character.
-                 *
-                 * See https://github.com/mozilla/source-map/pull/31 and
-                 * https://github.com/mozilla/source-map/issues/30
-                 *
-                 * @param String aStr
-                 */
-                function toSetString(aStr) {
-                    return '$' + aStr;
-                }
-                exports.toSetString = toSetString;
-                function relative(aRoot, aPath) {
-                    aRoot = aRoot.replace(/\/$/, '');
-                    return aPath.indexOf(aRoot + '/') === 0 ? aPath.substr(aRoot.length + 1) : aPath;
-                }
-                exports.relative = relative;
-            });
-        },
-        { 'amdefine': 15 }
     ],
     16: [
         function (require, module, exports) {
@@ -9642,12 +9642,12 @@ require = function (e, t, n, r) {
     ]
 }, {}, [
     'CCiCNi',
-    'k9z+hH',
-    'HCa7Jr',
-    'i59kuv',
-    'a5pW2C',
-    'HmmaXS',
-    'XD97sj',
-    '4tKLo4'
+    'o9QCoL',
+    '5QF9Qj',
+    'R8Ba+v',
+    'WEt/eN',
+    'fLaY4S',
+    'h+sAzN',
+    'yhbTZ0'
 ]);
 ;
