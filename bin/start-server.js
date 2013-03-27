@@ -3,7 +3,8 @@ var path = require('path');
 var ide = require('../atropa-ide.js');
 
 var port = process.argv[2] || 9777;
-var serverRoot = process.argv[3] || '../atropa-ide/';
+
+var serverRoot = process.argv[3] || path.resolve(__dirname + '/../');
 serverRoot = path.resolve(serverRoot);
 console.log('server root: ' + serverRoot);
 
