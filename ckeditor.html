@@ -5,14 +5,26 @@
 	<title>new.html</title>
 	<meta charset="utf-8">
 	<script src="ckeditor/ckeditor.js"></script>
-    <script src="editor.jsn"></script>
+    <!--script src="ide.jsn"
+        type="text/javascript"
+        charset="utf-8">
+    </script-->
+    <script src="ide.js"
+        type="text/javascript"
+        charset="utf-8">
+    </script>
     <script type="text/javascript"
         type="text/javascript"
         charset="utf-8">
-        var Ui = require('./browser_modules/ckeditor.js');
+        var ui;
+        window.addEventListener('load', function () {
+            var Ui = require('./browser_modules/ckeditor.js');
+            ui = new Ui();
+            ui.initializeCk();
+        });
 </script>
 </head>
-<body onload="ui = new Ui(); ui.initializeCk();">
+<body>
 	<form id="atropaEditor" action="save.jsn" method="post">
                 <input style="display:none;"
                    type="text"
