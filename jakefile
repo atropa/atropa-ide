@@ -5,8 +5,8 @@ task('default', ['compileBrowserModules'], function () {
 desc('compile browser modules into a single file');
 task('compileBrowserModules', function () {
     "use strict";
-    var compiler = require('browserModuleCompiler.js');
-    compiler.writeToFile('compiledEditor.js');
+    var compiler = require('./compiler/browserModuleCompiler.js');
+    compiler.writeToFile('ide.js');
 });
 
 
