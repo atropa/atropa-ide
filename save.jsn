@@ -22,7 +22,7 @@ module.exports = function (response, request) {
             response.writeHead(200, {
                 'Content-Type' : 'text/plain',
                 'Content-Disposition' : 'attachment; filename="' +
-                    body.fileName.replace(/ \([0-9]+\)/, '') + '"'
+                    body.fileName.replace(/ \([0-9]+\)$/, '') + '"'
             });
             response.write(
                 outputFile,
