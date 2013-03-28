@@ -43,6 +43,8 @@ save the file to disk.
 
 ### Options
 
+#### Ace
+
 All options may be configured through the settings menu in the editor. 
 The default settings are restored when the page is reloaded. To automatically 
 set settings on page load, specify the setting in the query string of the url. 
