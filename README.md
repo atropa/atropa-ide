@@ -34,13 +34,20 @@ ide.start(port, serverRoot);
 console.log('open http://localhost:' +
     port + ' in your web browser to get started.');
 ```
+### Load Files by Dragging and Dropping
+
+Both the ckeditor and ace editor support loading files by dropping them into 
+the editable area. They also support saving the edited content to local 
+files. Click on the save button and your browser should give you the option to 
+save the file to disk.
 
 ### Options
 
 All options may be configured through the settings menu in the editor. 
 The default settings are restored when the page is reloaded. To automatically 
 set settings on page load, specify the setting in the query string of the url. 
-For example to set the mode, theme, font size, and show invisibles on page load do
+For example to set the mode, theme, font size, and show invisibles on page 
+load do
 ```
 http://localhost:5555/ace editor?setMode=ace/mode/html&setTheme=ace/theme/github&setFontSize=24px&setShowInvisibles=true
 ```

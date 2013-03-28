@@ -27,12 +27,7 @@ npm install atropa-ide
 
 <h3>Startup</h3>
 
-<p>atropa-ide may be started from the command line. Go into the <code>.bin&nbsp;</code>folder<br />
-inside the node_modules folder where you installed this package and run&nbsp;<br />
-<code>atropa-ide 5555</code>. The server will start and give you the web address to&nbsp;<br />
-the main page. In this case it will be <code>http://localhost:5555</code>&nbsp;Use whatever&nbsp;<br />
-port you want to when starting the server or leave it unspecified and a default<br />
-port will be chosen.</p>
+<p>atropa-ide may be started from the command line. Go into the <code>.bin</code>folder&nbsp;inside the node_modules folder where you installed this package and run&nbsp;<code>atropa-ide 5555</code>. The server will start and give you the web address to&nbsp;the main page. In this case it will be <code>http://localhost:5555</code> Use whatever&nbsp;port you want to when starting the server or leave it unspecified and a default&nbsp;port will be chosen.</p>
 
 <p>The atropa-ide may also be launched from scripts.</p>
 
@@ -45,6 +40,10 @@ var serverRoot = path.resolve(&#39;./node_modules/atropa-ide/&#39;);
 ide.start(port, serverRoot);
 console.log(&#39;open http://localhost:&#39; +
     port + &#39; in your web browser to get started.&#39;);</pre>
+
+<h3>Load Files by Dragging and Dropping</h3>
+
+<p>Both the ckeditor and ace editor support loading files by dropping them into the editable area. They also support saving the edited content to local files. Click on the save button and your browser should give you the option to save the file to disk.</p>
 
 <h3>Options</h3>
 
