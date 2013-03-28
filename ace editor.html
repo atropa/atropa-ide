@@ -23,20 +23,9 @@
             type="text/javascript"
             charset="utf-8">
         </script>
-        <script type="text/javascript"
+        <script src="ace editor.js"
             type="text/javascript"
             charset="utf-8">
-            var ui;
-            window.addEventListener('load', function () {
-                var Ui = require('./browser_modules/ace editor.js');
-                var url = require('url');
-                var loc = document.location.href;
-                loc = loc.replace(/\?&/g, '?');
-                loc = loc.replace(/(&#|&$)/g, '#');
-                var options = url.parse(loc, true).query;
-                ui = new Ui();
-                ui.initializeAce(options);
-            });
         </script>
     </head>
     <body>
