@@ -59,3 +59,11 @@ body {
 .button#formatJs {
     background-image: url(famfamfam_silk_icons_v013/icons/rainbow.png);
 }
+
+.button#toggleRecording {
+    background-image: url(famfamfam_silk_icons_v013/icons/bullet_red.png);
+}
+
+.button#replay {
+    background-image: url(famfamfam_silk_icons_v013/icons/control_play_blue.png);
+}

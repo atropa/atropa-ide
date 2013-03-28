@@ -1,92 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible"
-              content="IE=edge,chrome=1">
-        <title>
-            new.js
-        </title>
-        <link rel="stylesheet"
-            type="text/css"
-            charset="utf8"
-            href="ace editor.css" />
-        <script src="ace/ace.js"
+<head>
+	<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<title>new.js</title>
+	<link charset="utf8" href="ace editor.css" rel="stylesheet" type="text/css" /><script src="ace/ace.js"
+            type="text/javascript"
+            charset="utf-8">
+        </script><!--script src="ide.jsn"
+            type="text/javascript"
+            charset="utf-8">
+        </script--><script src="ide.js"
+            type="text/javascript"
+            charset="utf-8">
+        </script><script src="ace editor.js"
             type="text/javascript"
             charset="utf-8">
         </script>
-        <!--script src="ide.jsn"
-            type="text/javascript"
-            charset="utf-8">
-        </script-->
-        <script src="ide.js"
-            type="text/javascript"
-            charset="utf-8">
-        </script>
-        <script src="ace editor.js"
-            type="text/javascript"
-            charset="utf-8">
-        </script>
-    </head>
-    <body>
-        
-        <div class="container" id="leftbuttons">
-            <button class="button"
-                id="save"
-                title="save"
-                onclick="ui.save()"></button>
-            <br/>
-            <button class="button"
-                id="showKeyboardShortcuts"
-                title="show keyboard shortcuts"
-                onclick="ui.aceShowKeybordShortcuts()"></button>
-            <br/>
-            <button class="button"
-                id="showSettingsMenu"
-                title="show Settings Menu"
-                onclick="ui.aceShowSettingsMenu()"></button>
-            <br/>
-            <button class="button"
-                id="undo"
-                title="undo"
-                onclick="ui.editor.undo()"></button>
-            <br/>
-            <button class="button"
-                id="redo"
-                title="redo"
-                onclick="ui.editor.redo()"></button>
-            <br/>
-            <button class="button"
-                id="formatJs"
-                title="format JavaScript"
-                onclick="ui.formatJs()"></button>
-            <br/>
-            
-        </div>
-        
-        <pre id="editor">
+</head>
+<body>
+<div class="container" id="leftbuttons"><button class="button" id="save" onclick="ui.save()" title="save"></button><br />
+<button class="button" id="showKeyboardShortcuts" onclick="ui.aceShowKeybordShortcuts()" title="show keyboard shortcuts"></button><br />
+<button class="button" id="showSettingsMenu" onclick="ui.aceShowSettingsMenu()" title="show Settings Menu"></button><br />
+<button class="button" id="undo" onclick="ui.editor.undo()" title="undo"></button><br />
+<button class="button" id="redo" onclick="ui.editor.redo()" title="redo"></button><br />
+<button class="button" id="toggleRecording" onclick="ui.editor.commands.toggleRecording(ui.editor); (ui.editor.commands.recording) ? this.style.backgroundImage = 'url(famfamfam_silk_icons_v013/icons/bullet_black.png)' : this.style.backgroundImage = 'url(famfamfam_silk_icons_v013/icons/bullet_red.png)';" title="toggle macro recording"></button><br />
+<button class="button" id="replay" onclick="ui.editor.commands.replay(ui.editor);" title="replay macro"></button><br />
+<button class="button" id="formatJs" onclick="ui.formatJs()" title="format JavaScript"></button></div>
+
+<pre id="editor">
 function foo(items) {
     var i;
-    for (i = 0; i &lt; items.length; i++) {
+    for (i = 0; i < items.length; i++) {
         alert("Ace Rocks " + items[i]);
     }
 }
 </pre>
-        
-        <form style="display:none;"
-              method="post"
-              action="save.jsn">
-            <p>
-                <input style="display:none;"
-                   type="text"
-                   id="fileName"
-                   name="fileName"> 
 
-                <textarea style="display:none;"
-                   id="newFile"
-                   name="newFile">
-</textarea>
-            </p>
-        </form>
-    </body>
+<form action="save.jsn" method="post" style="display:none;">
+<p><input id="fileName" name="fileName" style="display:none;" type="text" /><textarea id="newFile" name="newFile" style="display:none;"></textarea></p>
+</form>
+</body>
 </html>
