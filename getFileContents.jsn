@@ -1,0 +1,71 @@
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    node: true,
+    vars: true
+*/
+module.exports = function (response, request) {
+    "use strict";
+    var os = require('os');
+    var fs = require('fs');
+    var url = require('url');
+    var url_parts = url.parse(request.url);
+    var querystring = require('querystring');
+    var mime = require('mime');
+    mime.default_type = 'text/plain';
+    var body = '';
+    var outputFile = '';
+    
+    function fileNotFound (e) {
+        response.writeHead(404, {
+            'Content-Type' : "text/plain"
+        });
+        response.write(
+            'file not found: ' + body.fileLocation + '. ' + e,
+            'utf8'
+        );
+        response.end();
+    }
+    
+    function fileExists () {
+        response.writeHead(200, {
+            'Content-Type' : mime.lookup(body.fileLocation)
+        });
+        response.write(
+            outputFile,
+            'utf8'
+        );
+        response.end();
+    }
+    
+    function acceptPostsAndGets (postBody) {
+        var out = {};
+        if(postBody === '') {
+            out = querystring.parse(url_parts.query);
+        } else {
+            out = querystring.parse(postBody);
+        }
+        return out;
+    }
+    
+    request.on('data', function (data) {
+        body += data.toString();
+    });
+    
+    request.on('end', function () {
+        body = acceptPostsAndGets(body);
+        if(typeof body.fileLocation === 'string' && body.fileLocation !== '') {
+            try {
+                outputFile = fs.readFileSync(body.fileLocation, 'utf8');
+            } catch (e) {
+                fileNotFound(e);
+            }
+            fileExists();
+        } else {
+            fileNotFound();
+        }
+    });
+};
+
+
