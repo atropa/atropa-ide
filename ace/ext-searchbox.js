@@ -69,6 +69,9 @@ float: left;\
 margin-bottom: 4px;\
 overflow: hidden;\
 }\
+.ace_search_form.ace_nomatch {\
+outline: 1px solid red;\
+}\
 .ace_search_field {\
 background-color: white;\
 border-right: 1px solid #cbcbcb;\
@@ -144,6 +147,42 @@ width: 54px\
 }\
 .ace_replacebtn.next {\
 width: 27px\
+}\
+.ace_button {\
+margin-left: 2px;\
+cursor: pointer;\
+-webkit-user-select: none;\
+-moz-user-select: none;\
+-o-user-select: none;\
+-ms-user-select: none;\
+user-select: none;\
+overflow: hidden;\
+opacity: 0.7;\
+border: 1px solid rgba(100,100,100,0.23);\
+padding: 1px;\
+-moz-box-sizing: border-box;\
+box-sizing:	border-box;\
+color: black;\
+}\
+.ace_button:hover {\
+background-color: #eee;\
+opacity:1;\
+}\
+.ace_button:active {\
+background-color: #ddd;\
+}\
+.ace_button.checked {\
+border-color: #3399ff;\
+opacity:1;\
+}\
+.ace_search_options{\
+margin-bottom: 3px;\
+text-align: right;\
+-webkit-user-select: none;\
+-moz-user-select: none;\
+-o-user-select: none;\
+-ms-user-select: none;\
+user-select: none;\
 }";
 var HashHandler = require("../keyboard/hash_handler").HashHandler;
 var keyUtil = require("../lib/keys");
@@ -163,9 +202,9 @@ var html = '<div class="ace_search right">\
         <button type="button" action="replaceAll" class="ace_replacebtn">All</button>\
     </div>\
     <div class="ace_search_options">\
-        <input id="regExp" type="checkbox"></input><label for="regExp">RegExp Search</label><br>\
-        <input id="caseSensitive" type="checkbox"></input><label for="caseSensitive">caseSensitive Search</label><br>\
-        <input id="wholeWord" type="checkbox"></input><label for="wholeWord">wholeWord Search</label>\
+        <span action="toggleRegexpMode" class="ace_button" title="RegExp Search">.*</span>\
+        <span action="toggleCaseSensitive" class="ace_button" title="CaseSensitive Search">Aa</span>\
+        <span action="toggleWholeWords" class="ace_button" title="Whole Word Search">\\b</span>\
     </div>\
 </div>'.replace(/>\s+/g, ">");
 
@@ -191,12 +230,11 @@ var SearchBox = function(editor, range, showReplaceForm) {
         this.searchBox = sb.querySelector(".ace_search_form");
         this.replaceBox = sb.querySelector(".ace_replace_form");
         this.searchOptions = sb.querySelector(".ace_search_options");
-        this.regExp_option = sb.querySelector(".ace_search_options #regExp");
-        this.caseSensitive_option = sb.querySelector(".ace_search_options #caseSensitive");
-        this.wholeWord_option = sb.querySelector(".ace_search_options #wholeWord");
+        this.regExpOption = sb.querySelector("[action=toggleRegexpMode]");
+        this.caseSensitiveOption = sb.querySelector("[action=toggleCaseSensitive]");
+        this.wholeWordOption = sb.querySelector("[action=toggleWholeWords]");
         this.searchInput = this.searchBox.querySelector(".ace_search_field");
         this.replaceInput = this.replaceBox.querySelector(".ace_search_field");
-        
 
         var _this = this;
         event.addListener(sb, "mousedown", function(e) {
@@ -210,6 +248,8 @@ var SearchBox = function(editor, range, showReplaceForm) {
             var action = t.getAttribute("action");
             if (action && _this[action])
                 _this[action]();
+            else if (_this.$searchBarKb.commands[action])
+                _this.$searchBarKb.commands[action].exec(_this);
             event.stopPropagation(e);
         });
 
@@ -235,10 +275,6 @@ var SearchBox = function(editor, range, showReplaceForm) {
         event.addListener(this.replaceInput, "focus", function() {
             _this.activeInput = _this.replaceInput;
         });
-        event.addListener(this.searchOptions, "change", function() {
-            _this.find(false, false);
-        });
-        
     };
     this.$closeSearchBarKb = new HashHandler([{
         bindKey: "Esc",
@@ -253,6 +289,12 @@ var SearchBox = function(editor, range, showReplaceForm) {
             var isReplace = sb.isReplace = !sb.isReplace;
             sb.replaceBox.style.display = isReplace ? "" : "none";
             sb[isReplace ? "replaceInput" : "searchInput"].focus();
+        },
+        "Ctrl-G|Command-G": function(sb) {
+            sb.findNext();
+        },
+        "Ctrl-Shift-G|Command-Shift-G": function(sb) {
+            sb.findPrev();
         },
         "esc": function(sb) {
             setTimeout(function() { sb.hide();});
@@ -271,17 +313,47 @@ var SearchBox = function(editor, range, showReplaceForm) {
             (sb.activeInput == sb.replaceInput ? sb.searchInput : sb.replaceInput).focus();
         }
     });
-
+    
+    this.$searchBarKb.addCommands([{
+        name: "toggleRegexpMode",
+        bindKey: {win: "Alt-R|Alt-/", mac: "Ctrl-Alt-R|Ctrl-Alt-/"},
+        exec: function(sb) {
+            sb.regExpOption.checked = !sb.regExpOption.checked;
+            sb.$syncOptions();
+        }
+    }, {
+        name: "toggleCaseSensitive",
+        bindKey: {win: "Alt-C|Alt-I", mac: "Ctrl-Alt-R|Ctrl-Alt-I"},
+        exec: function(sb) {
+            sb.caseSensitiveOption.checked = !sb.caseSensitiveOption.checked;
+            sb.$syncOptions();
+        }
+    }, {
+        name: "toggleWholeWords",
+        bindKey: {win: "Alt-B|Alt-W", mac: "Ctrl-Alt-B|Ctrl-Alt-W"},
+        exec: function(sb) {
+            sb.wholeWordOption.checked = !sb.wholeWordOption.checked;
+            sb.$syncOptions();
+        }
+    }]);
+    
+    this.$syncOptions = function() {
+        dom.setCssClass(this.regExpOption, "checked", this.regExpOption.checked);
+        dom.setCssClass(this.wholeWordOption, "checked", this.wholeWordOption.checked);
+        dom.setCssClass(this.caseSensitiveOption, "checked", this.caseSensitiveOption.checked);
+        this.find(false, false);
+    };
 
     this.find = function(skipCurrent, backwards) {
-        this.editor.find(this.searchInput.value, {
+        var range = this.editor.find(this.searchInput.value, {
             skipCurrent: skipCurrent,
             backwards: backwards,
             wrap: true,
-            regExp: this.regExp_option.checked,
-            caseSensitive: this.caseSensitive_option.checked,
-            wholeWord: this.wholeWord_option.checked
+            regExp: this.regExpOption.checked,
+            caseSensitive: this.caseSensitiveOption.checked,
+            wholeWord: this.wholeWordOption.checked
         });
+        dom.setCssClass(this.searchBox, "ace_nomatch", !range && this.searchInput.value);
         this.editor.session.highlight(this.editor.$search.$options.re);
     };
     this.findNext = function() {
@@ -292,7 +364,6 @@ var SearchBox = function(editor, range, showReplaceForm) {
     };
     this.replace = function() {
         this.editor.replace(this.replaceInput.value);
-        this.findNext();
     };
     this.replaceAll = function() {
         this.editor.replaceAll(this.replaceInput.value);
