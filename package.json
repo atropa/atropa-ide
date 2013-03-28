@@ -1,7 +1,7 @@
 {
                     
     "name"          : "atropa-ide",
-    "version"       : "0.1.1-2",
+    "version"       : "0.1.2",
     "main"          : "./atropa-ide.js",
     "description"   : "An ide for web development using ckeditor and ace.",
     "keywords"      : ["atropa-ide", "atropa", "utilities", "ide", "code editor", "html editor"],
@@ -20,10 +20,11 @@
                         "node"      : ">=0.8.16"
     },
     "dependencies"  : {
-                        "atropa-jsformatter" : "0.1.1",
-                        "atropa-server" : "0.1.1-1",
-                        "browserify" : "2.7.2",
-                        "jake" : "0.5.10"
+                        "atropa-jsformatter" : ">=0.1.1",
+                        "atropa-server" : ">=0.1.1-1",
+                        "browserify" : ">=2.7.2",
+                        "jake" : ">=0.5.10",
+                        "mime" : ">=1.2.9"
     },
     "bin" : {
         "atropa-ide" : "./bin/start-server.js"
