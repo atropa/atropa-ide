@@ -38,6 +38,7 @@ window.addEventListener('load', function () {
         req = new XMLHttpRequest();
         
         req.onload = function reqListener () {
+            document.title = decodeURIComponent(options.loadFile);
             loadAce(this.responseText);
         };
         req.open(
