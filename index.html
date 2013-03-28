@@ -25,6 +25,8 @@ npm install atropa-ide
 
 <h2>Usage</h2>
 
+<h3>Startup</h3>
+
 <p>atropa-ide may be started from the command line. Go into the <code>.bin&nbsp;</code>folder<br />
 inside the node_modules folder where you installed this package and run&nbsp;<br />
 <code>atropa-ide 5555</code>. The server will start and give you the web address to&nbsp;<br />
@@ -43,5 +45,20 @@ var serverRoot = path.resolve(&#39;./node_modules/atropa-ide/&#39;);
 ide.start(port, serverRoot);
 console.log(&#39;open http://localhost:&#39; +
     port + &#39; in your web browser to get started.&#39;);</pre>
+
+<h3>Options</h3>
+
+<p>All options may be configured through the settings menu in the editor. The default settings are restored when the page is reloaded. To automatically set settings on page load, specify the setting in the query string of the url. For example to set the mode, theme, font size, and show invisibles on page load do</p>
+
+<pre>
+http://localhost:5555/ace editor?setMode=ace/mode/html&amp;setTheme=ace/theme/github&amp;setFontSize=24px&amp;setShowInvisibles=true</pre>
+
+<p>All supported options are the same as their names in the settings menu. For items set with checkboxes, give their values as either true or false. To set the mode, find the name of the mode you like in the dropdown box and prefix it with <code>ace/mode/</code> in the url. See the example above which sets the mode to <code>html</code> and the theme to <code>github</code>.</p>
+
+<p>To automatically load a file into the editor on page load set the loadFile parameter of the query string to the path of the file you want loaded.</p>
+
+<pre>
+http://localhost:5555/ace editor?loadFile=C:\Users\kastor\Desktop\aFile.html&amp;setMode=ace/mode/html
+</pre>
 </body>
 </html>
