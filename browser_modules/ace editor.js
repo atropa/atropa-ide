@@ -162,8 +162,6 @@ module.exports.prototype.aceShowSettingsMenu = function () {
     "use strict";
     var my = this;
     
-    var topmenu = document.createElement('div');
-    
     function createCheckbox (id, checked, clss) {
         var el = document.createElement('input');
         el.setAttribute('type', 'checkbox');
@@ -285,6 +283,7 @@ module.exports.prototype.aceShowSettingsMenu = function () {
             var val;
             var fn = item.replace(/^set/, 'get');
             if(my.menuOptions[item] !== undefined) {
+                // has options for select element
                 elements.push(makeDropdown(item, esr, clss, fn));
             } else if(typeof esr[fn] === 'function') {
                 // has get function
@@ -310,17 +309,18 @@ module.exports.prototype.aceShowSettingsMenu = function () {
         }
         
         function showMenu() {
+            var topmenu = document.createElement('div');
             elements.forEach(function (element) {
                 topmenu.appendChild(element);
             });
+            return topmenu;
         }
         
         my.getSetFunctions(handleSet);
         cleanupElementsList();
-        showMenu();
+        return showMenu();
     }
-    buildSettingsMenu();
-    this.overlayPage(topmenu, '0', '0', '0', null);
+    this.overlayPage(buildSettingsMenu(), '0', '0', '0', null);
 };
 
 
