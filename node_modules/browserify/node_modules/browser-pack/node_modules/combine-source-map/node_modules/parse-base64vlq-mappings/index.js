@@ -29,7 +29,7 @@ module.exports = function parse(str_) {
       str = str.slice(1);
     }
     else {
-      mapping = { generated: { }, original: { } };
+      mapping = { generated: { } };
       mapping.generated.line = generatedLine;
 
       // Generated column.
@@ -49,6 +49,7 @@ module.exports = function parse(str_) {
 
         // Original line.
         temp = base64VLQ.decode(str);
+        mapping.original = { };
         mapping.original.line = previousOriginalLine + temp.value;
         previousOriginalLine = mapping.original.line;
         // Lines are stored 0-based
