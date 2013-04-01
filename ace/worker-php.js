@@ -959,17 +959,15 @@ EventEmitter._dispatchEvent = function(eventName, e) {
         e.stopPropagation = stopPropagation;
     if (!e.preventDefault)
         e.preventDefault = preventDefault;
-    if (!e.target)
-        e.target = this;
 
     for (var i=0; i<listeners.length; i++) {
-        listeners[i](e);
+        listeners[i](e, this);
         if (e.propagationStopped)
             break;
     }
     
     if (defaultHandler && !e.defaultPrevented)
-        return defaultHandler(e);
+        return defaultHandler(e, this);
 };
 
 
@@ -979,7 +977,7 @@ EventEmitter._signal = function(eventName, e) {
         return;
 
     for (var i=0; i<listeners.length; i++)
-        listeners[i](e);
+        listeners[i](e, this);
 };
 
 EventEmitter.once = function(eventName, callback) {
@@ -1013,6 +1011,7 @@ EventEmitter.addEventListener = function(eventName, callback, capturing) {
     return callback;
 };
 
+EventEmitter.off =
 EventEmitter.removeListener =
 EventEmitter.removeEventListener = function(eventName, callback) {
     this._eventRegistry = this._eventRegistry || {};

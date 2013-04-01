@@ -20,8 +20,8 @@
 </head>
 <body>
 <div class="container" id="leftbuttons"><button class="button" id="save" onclick="ui.save()" title="save"></button><br />
-<button class="button" id="showKeyboardShortcuts" onclick="ui.aceShowKeybordShortcuts()" title="show keyboard shortcuts"></button><br />
-<button class="button" id="showSettingsMenu" onclick="ui.aceShowSettingsMenu()" title="show Settings Menu"></button><br />
+<button class="button" id="showKeyboardShortcuts" onclick="ui.editor.commands.byName.showKeyboardShortcuts.exec(ui.editor)" title="show keyboard shortcuts"></button><br />
+<button class="button" id="showSettingsMenu" onclick="ui.editor.commands.byName.showSettingsMenu.exec(ui.editor);" title="show Settings Menu"></button><br />
 <button class="button" id="undo" onclick="ui.editor.undo()" title="undo"></button><br />
 <button class="button" id="redo" onclick="ui.editor.redo()" title="redo"></button><br />
 <button class="button" id="toggleRecording" onclick="ui.editor.commands.toggleRecording(ui.editor); (ui.editor.commands.recording) ? this.style.backgroundImage = 'url(famfamfam_silk_icons_v013/icons/bullet_black.png)' : this.style.backgroundImage = 'url(famfamfam_silk_icons_v013/icons/bullet_red.png)';" title="toggle macro recording"></button><br />

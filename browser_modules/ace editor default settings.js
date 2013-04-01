@@ -9,31 +9,39 @@
     module
 */
 module.exports = {
-	"setAnimatedScroll" : false,
-	"setBehavioursEnabled" : true,
-	"setDisplayIndentGuides" : true,
-	"setDragDelay" : 150,
-	"setFadeFoldWidgets" : false,
-	"setHScrollBarAlwaysVisible" : false,
-	"setHighlightActiveLine" : true,
-	"setHighlightGutterLine" : true,
-	"setHighlightSelectedWord" : true,
-	"setMode" : "ace/mode/javascript",
-	"setNewLineMode" : "windows",
-	"setOverwrite" : false,
-	"setPrintMarginColumn" : 80,
-	"setReadOnly" : false,
-	"setScrollSpeed" : true,
-	"setSelectionStyle" : "line",
-	"setShowFoldWidgets" : true,
-	"setShowGutter" : true,
-	"setShowInvisibles" : false,
-	"setShowPrintMargin" : true,
-	"setTabSize" : 4,
-	"setTheme" : "ace/theme/twilight",
-	"setUseSoftTabs" : true,
-	"setUseWorker" : true,
-	"setUseWrapMode" : true,
-	"setWrapBehavioursEnabled" : true,
-	"setWrapLimit" : 80
+    "renderer" : {
+        "setAnimatedScroll" : false,
+        "setDisplayIndentGuides" : true,
+        "setFadeFoldWidgets" : false,
+        "setHighlightGutterLine" : true,
+        "setHScrollBarAlwaysVisible" : false,
+        "setPrintMarginColumn" : 80,
+        "setShowGutter" : true,
+        "setShowInvisibles" : false,
+        "setShowPrintMargin" : true,
+        "setTheme" : "ace/theme/twilight"
+    },
+    "session" : {
+        "setMode" : "ace/mode/javascript",
+        "setNewLineMode" : "windows",
+        "setOverwrite" : false,
+        "setTabSize" : 4,
+        "setUseSoftTabs" : true,
+        "setUseWorker" : true,
+        "setUseWrapMode" : true,
+        "setWrapLimit" : 80
+    },
+    "editor" : {
+        "setBehavioursEnabled" : true,
+        "setDragDelay" : 150,
+        "setFontSize" : "12px",
+        "setHighlightActiveLine" : true,
+        "setHighlightSelectedWord" : true,
+        "setReadOnly" : false,
+        "setScrollSpeed" : true,
+        "setSelectionStyle" : "line",
+        "setShowFoldWidgets" : true,
+        "setWrapBehavioursEnabled" : true
+    }
+	
 };

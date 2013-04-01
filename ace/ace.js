@@ -1514,7 +1514,7 @@ var Keys = (function() {
 
         KEY_MODS: {
             "ctrl": 1, "alt": 2, "option" : 2,
-            "shift": 4, "meta": 8, "command": 8
+            "shift": 4, "meta": 8, "command": 8, "cmd": 8
         },
 
         FUNCTION_KEYS : {
@@ -2537,6 +2537,7 @@ var Editor = function(renderer, session) {
         var sel = this.selection;
         var doc = this.session;
         var range = sel.getRange();
+        var reverse = sel.isBackwards();
         if (range.isEmpty()) {
             var row = range.start.row;
             doc.duplicateLines(row, row);
@@ -4644,17 +4645,15 @@ EventEmitter._dispatchEvent = function(eventName, e) {
         e.stopPropagation = stopPropagation;
     if (!e.preventDefault)
         e.preventDefault = preventDefault;
-    if (!e.target)
-        e.target = this;
 
     for (var i=0; i<listeners.length; i++) {
-        listeners[i](e);
+        listeners[i](e, this);
         if (e.propagationStopped)
             break;
     }
     
     if (defaultHandler && !e.defaultPrevented)
-        return defaultHandler(e);
+        return defaultHandler(e, this);
 };
 
 
@@ -4664,7 +4663,7 @@ EventEmitter._signal = function(eventName, e) {
         return;
 
     for (var i=0; i<listeners.length; i++)
-        listeners[i](e);
+        listeners[i](e, this);
 };
 
 EventEmitter.once = function(eventName, callback) {
@@ -4698,6 +4697,7 @@ EventEmitter.addEventListener = function(eventName, callback, capturing) {
     return callback;
 };
 
+EventEmitter.off =
 EventEmitter.removeListener =
 EventEmitter.removeEventListener = function(eventName, callback) {
     this._eventRegistry = this._eventRegistry || {};
@@ -5870,6 +5870,7 @@ var EditSession = function(text, mode) {
             len = lastRow - firstRow;
         }
 
+        this.$updating = true;
         if (len != 0) {
             if (action.indexOf("remove") != -1) {
                 this[useWrapMode ? "$wrapData" : "$rowLengthCache"].splice(firstRow, len);
@@ -5953,6 +5954,7 @@ var EditSession = function(text, mode) {
         if (useWrapMode && this.$wrapData.length != this.doc.getLength()) {
             console.error("doc.getLength() and $wrapData.length have to be the same!");
         }
+        this.$updating = false;
 
         if (useWrapMode)
             this.$updateWrapData(firstRow, lastRow);
@@ -6444,8 +6446,8 @@ config.defineOptions(EditSession.prototype, "session", {
                 this.setUseWrapMode(false);
             } else {
                 var col = typeof value == "number" ? value : null;
-                this.setUseWrapMode(true);
                 this.setWrapLimitRange(col, col);
+                this.setUseWrapMode(true);
             }
             this.$wrap = value;
         },
@@ -8932,10 +8934,12 @@ function Folding() {
             newFoldLine.start.column = folds[0].start.column;
         }
 
-        if (this.$useWrapMode)
-            this.$updateWrapData(startRow, endRow);
-        else
-            this.$updateRowLengthCache(startRow, endRow);
+        if (!this.$updating) {
+            if (this.$useWrapMode)
+                this.$updateWrapData(startRow, endRow);
+            else
+                this.$updateRowLengthCache(startRow, endRow);
+        }
         this.$modified = true;
         this._emit("changeFold", { data: fold });
     };
@@ -10480,13 +10484,14 @@ exports.CommandManager = CommandManager;
 
 });
 
-ace.define('ace/keyboard/hash_handler', ['require', 'exports', 'module' , 'ace/lib/keys'], function(require, exports, module) {
+ace.define('ace/keyboard/hash_handler', ['require', 'exports', 'module' , 'ace/lib/keys', 'ace/lib/useragent'], function(require, exports, module) {
 
 
 var keyUtil = require("../lib/keys");
+var useragent = require("../lib/useragent");
 
 function HashHandler(config, platform) {
-    this.platform = platform;
+    this.platform = platform || (useragent.isMac ? "mac" : "win");
     this.commands = {};
     this.commmandKeyBinding = {};
 
@@ -10628,6 +10633,24 @@ function bindKey(win, mac) {
 }
 
 exports.commands = [{
+    name: "showSettingsMenu",
+    bindKey: bindKey("Ctrl-q", "Command-q"),
+    exec: function (editor) {
+        config.loadModule("ace/ext/show_settings_menu", function (e) {
+            e.showSettingsMenu(editor);
+        });
+    },
+    readOnly: true
+}, {
+    name: "showKeyboardShortcuts",
+    bindKey: bindKey("Ctrl-Alt-H", "Command-Alt-H"),
+    exec: function (editor) {
+        config.loadModule("ace/ext/show_keyboard_shortcuts", function (e) {
+            e.showKeyboardShortcuts(editor);
+        });
+    },
+    readOnly: true
+}, {
     name: "selectall",
     bindKey: bindKey("Ctrl-A", "Command-A"),
     exec: function(editor) { editor.selectAll(); },
@@ -14587,13 +14610,9 @@ var WorkerClient = function(topLevelNamespaces, mod, classname) {
         workerUrl = config.moduleUrl(mod, "worker");
     } else {
         var normalizePath = this.$normalizePath;
-        if (typeof require.supports !== "undefined" && require.supports.indexOf("ucjs2-pinf-0") >= 0) {
-            workerUrl = require.nameToUrl("ace/worker/worker_sourcemint");
-        } else {
-            if (require.nameToUrl && !require.toUrl)
-                require.toUrl = require.nameToUrl;
-            workerUrl = normalizePath(require.toUrl("ace/worker/worker.js", null, "_"));
-        }
+        if (require.nameToUrl && !require.toUrl)
+            require.toUrl = require.nameToUrl;
+        workerUrl = normalizePath(require.toUrl("ace/worker/worker.js", null, "_"));
 
         var tlns = {};
         topLevelNamespaces.forEach(function(ns) {
