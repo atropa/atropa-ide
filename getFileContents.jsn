@@ -3,11 +3,11 @@
     maxerr: 50,
     white: true,
     node: true,
-    vars: true
+    vars: true,
+    stupid: true
 */
 module.exports = function (response, request) {
     "use strict";
-    var os = require('os');
     var fs = require('fs');
     var url = require('url');
     var url_parts = url.parse(request.url);
@@ -28,15 +28,38 @@ module.exports = function (response, request) {
         response.end();
     }
     
-    function fileExists () {
+    function fileExists (out) {
+        out = out || outputFile;
         response.writeHead(200, {
             'Content-Type' : mime.lookup(body.fileLocation)
         });
         response.write(
-            outputFile,
+            out,
             'utf8'
         );
         response.end();
+    }
+    
+    function getFetcher (addr) {
+        var http = require('http');
+        var https = require('https');
+        return (url.parse(addr).protocol === 'http:') ? http : https;
+    }
+
+    function getUrlContents (url) {
+        var http = getFetcher(url);
+        var out = '';
+        http.get(url, function (res) {
+            res.on('data', function (data) {
+                out += data.toString();
+            });
+            
+            res.on('end', function () {
+                fileExists(out);
+            });
+        }).on('error', function (e) {
+            fileNotFound(e.message);
+        });
     }
     
     function acceptPostsAndGets (postBody) {
@@ -57,11 +80,15 @@ module.exports = function (response, request) {
         body = acceptPostsAndGets(body);
         if(typeof body.fileLocation === 'string' && body.fileLocation !== '') {
             try {
-                outputFile = fs.readFileSync(body.fileLocation, 'utf8');
+                if(/^http/.test(body.fileLocation)) {
+                    getUrlContents(body.fileLocation);
+                } else {
+                    outputFile = fs.readFileSync(body.fileLocation, 'utf8');
+                    fileExists();
+                }
             } catch (e) {
                 fileNotFound(e);
             }
-            fileExists();
         } else {
             fileNotFound();
         }

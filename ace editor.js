@@ -31,7 +31,6 @@ window.addEventListener('load', function () {
                 ).replace(
                     /</g, '&lt;'
                 );
-            console.log(sample);
             document.getElementById('editor').innerHTML = sample;
         }
         ui = new Ui();
@@ -41,6 +40,7 @@ window.addEventListener('load', function () {
     options = getOptions();
     
     if(options.loadFile) {
+        document.getElementById('editor').innerHTML = 'loading file...';
         req = new XMLHttpRequest();
         
         req.onload = function reqListener () {
