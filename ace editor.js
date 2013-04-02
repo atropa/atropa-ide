@@ -25,7 +25,13 @@ window.addEventListener('load', function () {
     
     function loadAce (sample) {
         if(sample) {
-            sample = String(sample).replace(/</g, '&lt;');
+            sample = String(sample
+                ).replace(
+                    /&/g, '&amp;'
+                ).replace(
+                    /</g, '&lt;'
+                );
+            console.log(sample);
             document.getElementById('editor').innerHTML = sample;
         }
         ui = new Ui();
@@ -38,7 +44,9 @@ window.addEventListener('load', function () {
         req = new XMLHttpRequest();
         
         req.onload = function reqListener () {
-            document.title = decodeURIComponent(options.loadFile);
+            document.title = decodeURIComponent(
+                options.loadFile.replace(/^.*[\\|\/]([^\\|\/]+)$/, '$1')
+            );
             loadAce(this.responseText);
         };
         req.open(
