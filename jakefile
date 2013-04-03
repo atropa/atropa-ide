@@ -1,5 +1,5 @@
 desc('An alias for the build task.');
-task('default', ['compileBrowserModules'], function () {
+task('default', ['generateIndex', 'compileBrowserModules'], function () {
 });
 
 desc('compile browser modules into a single file');
@@ -7,6 +7,37 @@ task('compileBrowserModules', function () {
     "use strict";
     var compiler = require('./compiler/browserModuleCompiler.js');
     compiler.writeToFile('ide.js');
+});
+
+desc('generate index.html');
+task('generateIndex', function () {
+    "use strict";
+    var fs = require('fs');
+    var marked = require('marked');
+    var mustache = require('mustache');
+
+    var file = fs.readFileSync('README.md', 'utf8');
+
+    marked.setOptions({
+      gfm: true,
+      tables: true,
+      breaks: true,
+      pedantic: false,
+      sanitize: false,
+      smartLists: true,
+      langPrefix: 'language-',
+      highlight: function(code, lang) {
+        if (lang === 'js') {
+          return highlighter.javascript(code);
+        }
+        return code;
+      }
+    });
+
+    fs.writeFileSync('index.html', mustache.render(
+        fs.readFileSync('mustache_templates/index.html', 'utf8'),
+        { 'body' : marked(file) }
+    ));
 });
 
 
