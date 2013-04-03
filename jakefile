@@ -15,9 +15,10 @@ task('generateIndex', function () {
     var fs = require('fs');
     var marked = require('marked');
     var mustache = require('mustache');
-
-    var file = fs.readFileSync('README.md', 'utf8');
-
+    var readme = fs.readFileSync('README.md', 'utf8');
+    var view = JSON.parse(
+        fs.readFileSync('package.json', 'utf8')
+    );
     marked.setOptions({
       gfm: true,
       tables: true,
@@ -33,10 +34,11 @@ task('generateIndex', function () {
         return code;
       }
     });
-
+    
+    view.body = marked(readme);
     fs.writeFileSync('index.html', mustache.render(
         fs.readFileSync('mustache_templates/index.html', 'utf8'),
-        { 'body' : marked(file) }
+        view
     ));
 });
 
