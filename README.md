@@ -7,7 +7,7 @@ An ide for web development using ckeditor and ace.
 This project depends on node. If you don't have node you can find it at [http://nodejs.org](http://nodejs.org).
 
 Once node is installed on your system you can get this module through npm
-```
+```text
 npm install atropa-ide
 ```
 
@@ -24,7 +24,7 @@ port will be chosen.
 
 The atropa-ide may also be launched from scripts.
 
-```
+```javascript
 var ide = require('atropa-ide');
 var path = require('path');
 var port = 9777;
@@ -50,7 +50,7 @@ The default settings are restored when the page is reloaded. To automatically
 set settings on page load, specify the setting in the query string of the url. 
 For example to set the mode, theme, font size, and show invisibles on page 
 load do
-```
+```text
 http://localhost:5555/ace editor?setMode=ace/mode/html&setTheme=ace/theme/github&setFontSize=24px&setShowInvisibles=true
 ```
 All supported options are the same as their names in the settings menu. For 
@@ -61,7 +61,7 @@ with `ace/mode/` in the url. See the example above which sets the mode to
 
 To automatically load a file into the editor on page load set the loadFile 
 parameter of the query string to the path of the file you want loaded.
-```
+```text
 http://localhost:5555/ace editor?loadFile=C:\Users\kastor\Desktop\aFile.html
 ```
 
