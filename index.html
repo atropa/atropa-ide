@@ -33,9 +33,11 @@ console.log(&#39;open http://localhost:&#39; +
 <p>Both the ckeditor and ace editor support loading files by dropping them into<br>the editable area. They also support saving the edited content to local<br>files. Click on the save button and your browser should give you the option to<br>save the file to disk.</p>
 <h3>Options</h3>
 <h4>Ace</h4>
+<h5>Config</h5>
 <p>All options may be configured through the settings menu in the editor.<br>The default settings are restored when the page is reloaded. To automatically<br>set settings on page load, specify the setting in the query string of the url.<br>For example to set the mode, theme, font size, and show invisibles on page<br>load do</p>
 <pre><code class="language-text">http://localhost:5555/ace editor?setMode=ace/mode/html&amp;setTheme=ace/theme/github&amp;setFontSize=24px&amp;setShowInvisibles=true</code></pre>
 <p>All supported options are the same as their names in the settings menu. For<br>items set with checkboxes, give their values as either true or false. To set<br>the mode, find the name of the mode you like in the dropdown box and prefix it<br>with <code>ace/mode/</code> in the url. See the example above which sets the mode to<br><code>html</code> and the theme to <code>github</code>.</p>
+<h5>Autoload From Files or URLs</h5>
 <p>To automatically load a file into the editor on page load set the loadFile<br>parameter of the query string to the path of the file you want loaded.</p>
 <pre><code class="language-text">http://localhost:5555/ace editor?loadFile=C:\Users\kastor\Desktop\aFile.html</code></pre>
 

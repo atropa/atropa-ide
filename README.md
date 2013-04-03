@@ -45,6 +45,8 @@ save the file to disk.
 
 #### Ace
 
+##### Config
+
 All options may be configured through the settings menu in the editor. 
 The default settings are restored when the page is reloaded. To automatically 
 set settings on page load, specify the setting in the query string of the url. 
@@ -53,15 +55,21 @@ load do
 ```text
 http://localhost:5555/ace editor?setMode=ace/mode/html&setTheme=ace/theme/github&setFontSize=24px&setShowInvisibles=true
 ```
+
 All supported options are the same as their names in the settings menu. For 
 items set with checkboxes, give their values as either true or false. To set 
 the mode, find the name of the mode you like in the dropdown box and prefix it 
 with `ace/mode/` in the url. See the example above which sets the mode to 
 `html` and the theme to `github`.
 
+##### Autoload From Files or URLs
+
 To automatically load a file into the editor on page load set the loadFile 
 parameter of the query string to the path of the file you want loaded.
 ```text
 http://localhost:5555/ace editor?loadFile=C:\Users\kastor\Desktop\aFile.html
+```
+```text
+http://localhost:5555/ace editor?loadFile=http://www.google.com/
 ```
 
