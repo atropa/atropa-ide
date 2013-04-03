@@ -1,7 +1,7 @@
 {
                     
     "name"          : "atropa-ide",
-    "version"       : "0.2.1",
+    "version"       : "0.2.1-1",
     "main"          : "./atropa-ide.js",
     "description"   : "An ide for web development using ckeditor and ace.",
     "keywords"      : ["atropa-ide", "atropa", "utilities", "ide", "code editor", "html editor"],
