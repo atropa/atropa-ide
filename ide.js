@@ -22,13 +22,13 @@ require = function (e, t, n) {
         i(n[s]);
     return i;
 }({
-    './browser_modules/ace editor default settings.js': [
+    './browser_modules/ckeditor aceSourceView.js': [
         function (require, module, exports) {
-            module.exports = require('o9QCoL');
+            module.exports = require('WEt/eN');
         },
         {}
     ],
-    'o9QCoL': [
+    'WEt/eN': [
         function (require, module, exports) {
             /*jslint
                 indent: 4,
@@ -41,39 +41,16 @@ require = function (e, t, n) {
                 module
             */
             module.exports = {
-                'renderer': {
-                    'setAnimatedScroll': false,
-                    'setDisplayIndentGuides': true,
-                    'setFadeFoldWidgets': false,
-                    'setHighlightGutterLine': true,
-                    'setHScrollBarAlwaysVisible': false,
-                    'setPrintMarginColumn': 80,
-                    'setShowGutter': true,
-                    'setShowInvisibles': false,
-                    'setShowPrintMargin': true,
-                    'setTheme': 'ace/theme/twilight'
-                },
-                'session': {
-                    'setMode': 'ace/mode/javascript',
-                    'setNewLineMode': 'windows',
-                    'setOverwrite': false,
-                    'setTabSize': 4,
-                    'setUseSoftTabs': true,
-                    'setUseWorker': true,
-                    'setUseWrapMode': true,
-                    'setWrapLimit': 80
-                },
-                'editor': {
-                    'setBehavioursEnabled': true,
-                    'setDragDelay': 150,
-                    'setFontSize': '12px',
-                    'setHighlightActiveLine': true,
-                    'setHighlightSelectedWord': true,
-                    'setReadOnly': false,
-                    'setScrollSpeed': true,
-                    'setSelectionStyle': 'line',
-                    'setShowFoldWidgets': true,
-                    'setWrapBehavioursEnabled': true
+                'url': 'ace editor.html?setMode=ace/mode/html',
+                'hook': function (codeHighlighter) {
+                    'use strict';
+                    codeHighlighter.getValue = function () {
+                        return codeHighlighter.frame.contentWindow.ui.session.getValue();
+                    };
+                    codeHighlighter.setValue = function (val) {
+                        return codeHighlighter.frame.contentWindow.ui.session.setValue(val);
+                    };
+                    return codeHighlighter;
                 }
             };
         },
@@ -643,13 +620,13 @@ require = function (e, t, n) {
         },
         { 'querystring': 1 }
     ],
-    './browser_modules/ckeditor aceSourceView.js': [
+    './browser_modules/ace editor default settings.js': [
         function (require, module, exports) {
-            module.exports = require('WEt/eN');
+            module.exports = require('o9QCoL');
         },
         {}
     ],
-    'WEt/eN': [
+    'o9QCoL': [
         function (require, module, exports) {
             /*jslint
                 indent: 4,
@@ -662,16 +639,39 @@ require = function (e, t, n) {
                 module
             */
             module.exports = {
-                'url': 'ace editor.html?setMode=ace/mode/html',
-                'hook': function (codeHighlighter) {
-                    'use strict';
-                    codeHighlighter.getValue = function () {
-                        return codeHighlighter.frame.contentWindow.ui.session.getValue();
-                    };
-                    codeHighlighter.setValue = function (val) {
-                        return codeHighlighter.frame.contentWindow.ui.session.setValue(val);
-                    };
-                    return codeHighlighter;
+                'renderer': {
+                    'setAnimatedScroll': false,
+                    'setDisplayIndentGuides': true,
+                    'setFadeFoldWidgets': false,
+                    'setHighlightGutterLine': true,
+                    'setHScrollBarAlwaysVisible': false,
+                    'setPrintMarginColumn': 80,
+                    'setShowGutter': true,
+                    'setShowInvisibles': false,
+                    'setShowPrintMargin': true,
+                    'setTheme': 'ace/theme/twilight'
+                },
+                'session': {
+                    'setMode': 'ace/mode/javascript',
+                    'setNewLineMode': 'windows',
+                    'setOverwrite': false,
+                    'setTabSize': 4,
+                    'setUseSoftTabs': true,
+                    'setUseWorker': true,
+                    'setUseWrapMode': true,
+                    'setWrapLimit': 80
+                },
+                'editor': {
+                    'setBehavioursEnabled': true,
+                    'setDragDelay': 150,
+                    'setFontSize': '12px',
+                    'setHighlightActiveLine': true,
+                    'setHighlightSelectedWord': true,
+                    'setReadOnly': false,
+                    'setScrollSpeed': true,
+                    'setSelectionStyle': 'line',
+                    'setShowFoldWidgets': true,
+                    'setWrapBehavioursEnabled': true
                 }
             };
         },
@@ -1128,9 +1128,21 @@ require = function (e, t, n) {
         },
         {
             'atropa-jsformatter': 'yhbTZ0',
-            './editor.js': 'h+sAzN',
-            './ace editor default settings.js': 'o9QCoL'
+            './ace editor default settings.js': 'o9QCoL',
+            './editor.js': 'h+sAzN'
         }
+    ],
+    'atropa-jsformatter': [
+        function (require, module, exports) {
+            module.exports = require('yhbTZ0');
+        },
+        {}
+    ],
+    'yhbTZ0': [
+        function (require, module, exports) {
+            module.exports = require('./src/atropa-jsformatter.js');
+        },
+        { './src/atropa-jsformatter.js': 2 }
     ],
     './browser_modules/ckeditor.js': [
         function (require, module, exports) {
@@ -1246,18 +1258,6 @@ require = function (e, t, n) {
             './ckeditor aceSourceView.js': 'WEt/eN',
             './editor.js': 'h+sAzN'
         }
-    ],
-    'atropa-jsformatter': [
-        function (require, module, exports) {
-            module.exports = require('yhbTZ0');
-        },
-        {}
-    ],
-    'yhbTZ0': [
-        function (require, module, exports) {
-            module.exports = require('./src/atropa-jsformatter.js');
-        },
-        { './src/atropa-jsformatter.js': 2 }
     ],
     3: [
         function (require, module, exports) {
@@ -6768,11 +6768,11 @@ require = function (e, t, n) {
         },
         {
             './package.json': 6,
-            'estraverse': 7,
-            'source-map': 8
+            'source-map': 7,
+            'estraverse': 8
         }
     ],
-    7: [
+    8: [
         function (require, module, exports) {
             (function () {
                 /*
@@ -7152,7 +7152,7 @@ require = function (e, t, n) {
         },
         {}
     ],
-    8: [
+    7: [
         function (require, module, exports) {
             /*
              * Copyright 2009-2011 Mozilla Foundation and contributors
@@ -7165,607 +7165,11 @@ require = function (e, t, n) {
         },
         {
             './source-map/source-map-generator': 9,
-            './source-map/source-node': 10,
-            './source-map/source-map-consumer': 11
+            './source-map/source-map-consumer': 10,
+            './source-map/source-node': 11
         }
     ],
     10: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
-                /**
-                 * SourceNodes provide a way to abstract over interpolating/concatenating
-                 * snippets of generated JavaScript source code while maintaining the line and
-                 * column information associated with the original source code.
-                 *
-                 * @param aLine The original line number.
-                 * @param aColumn The original column number.
-                 * @param aSource The original source's filename.
-                 * @param aChunks Optional. An array of strings which are snippets of
-                 *        generated JS, or other SourceNodes.
-                 * @param aName The original identifier.
-                 */
-                function SourceNode(aLine, aColumn, aSource, aChunks, aName) {
-                    this.children = [];
-                    this.line = aLine === undefined ? null : aLine;
-                    this.column = aColumn === undefined ? null : aColumn;
-                    this.source = aSource === undefined ? null : aSource;
-                    this.name = aName === undefined ? null : aName;
-                    if (aChunks != null)
-                        this.add(aChunks);
-                }
-                /**
-                 * Creates a SourceNode from generated code and a SourceMapConsumer.
-                 *
-                 * @param aGeneratedCode The generated code
-                 * @param aSourceMapConsumer The SourceMap for the generated code
-                 */
-                SourceNode.fromStringWithSourceMap = function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer) {
-                    // The SourceNode we want to fill with the generated code
-                    // and the SourceMap
-                    var node = new SourceNode();
-                    // The generated code
-                    // Processed fragments are removed from this array.
-                    var remainingLines = aGeneratedCode.split('\n');
-                    // We need to remember the position of "remainingLines"
-                    var lastGeneratedLine = 1, lastGeneratedColumn = 0;
-                    // The generate SourceNodes we need a code range.
-                    // To extract it current and last mapping is used.
-                    // Here we store the last mapping.
-                    var lastMapping = null;
-                    aSourceMapConsumer.eachMapping(function (mapping) {
-                        if (lastMapping === null) {
-                            // We add the generated code until the first mapping
-                            // to the SourceNode without any mapping.
-                            // Each line is added as separate string.
-                            while (lastGeneratedLine < mapping.generatedLine) {
-                                node.add(remainingLines.shift() + '\n');
-                                lastGeneratedLine++;
-                            }
-                            if (lastGeneratedColumn < mapping.generatedColumn) {
-                                var nextLine = remainingLines[0];
-                                node.add(nextLine.substr(0, mapping.generatedColumn));
-                                remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-                                lastGeneratedColumn = mapping.generatedColumn;
-                            }
-                        } else {
-                            // We add the code from "lastMapping" to "mapping":
-                            // First check if there is a new line in between.
-                            if (lastGeneratedLine < mapping.generatedLine) {
-                                var code = '';
-                                // Associate full lines with "lastMapping"
-                                do {
-                                    code += remainingLines.shift() + '\n';
-                                    lastGeneratedLine++;
-                                    lastGeneratedColumn = 0;
-                                } while (lastGeneratedLine < mapping.generatedLine);
-                                // When we reached the correct line, we add code until we
-                                // reach the correct column too.
-                                if (lastGeneratedColumn < mapping.generatedColumn) {
-                                    var nextLine = remainingLines[0];
-                                    code += nextLine.substr(0, mapping.generatedColumn);
-                                    remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-                                    lastGeneratedColumn = mapping.generatedColumn;
-                                }
-                                // Create the SourceNode.
-                                addMappingWithCode(lastMapping, code);
-                            } else {
-                                // There is no new line in between.
-                                // Associate the code between "lastGeneratedColumn" and
-                                // "mapping.generatedColumn" with "lastMapping"
-                                var nextLine = remainingLines[0];
-                                var code = nextLine.substr(0, mapping.generatedColumn - lastGeneratedColumn);
-                                remainingLines[0] = nextLine.substr(mapping.generatedColumn - lastGeneratedColumn);
-                                lastGeneratedColumn = mapping.generatedColumn;
-                                addMappingWithCode(lastMapping, code);
-                            }
-                        }
-                        lastMapping = mapping;
-                    }, this);
-                    // We have processed all mappings.
-                    // Associate the remaining code in the current line with "lastMapping"
-                    // and add the remaining lines without any mapping
-                    addMappingWithCode(lastMapping, remainingLines.join('\n'));
-                    return node;
-                    function addMappingWithCode(mapping, code) {
-                        if (mapping.source === undefined) {
-                            node.add(code);
-                        } else {
-                            node.add(new SourceNode(mapping.originalLine, mapping.originalColumn, mapping.source, code, mapping.name));
-                        }
-                    }
-                };
-                /**
-                 * Add a chunk of generated JS to this source node.
-                 *
-                 * @param aChunk A string snippet of generated JS code, another instance of
-                 *        SourceNode, or an array where each member is one of those things.
-                 */
-                SourceNode.prototype.add = function SourceNode_add(aChunk) {
-                    if (Array.isArray(aChunk)) {
-                        aChunk.forEach(function (chunk) {
-                            this.add(chunk);
-                        }, this);
-                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
-                        if (aChunk) {
-                            this.children.push(aChunk);
-                        }
-                    } else {
-                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
-                    }
-                    return this;
-                };
-                /**
-                 * Add a chunk of generated JS to the beginning of this source node.
-                 *
-                 * @param aChunk A string snippet of generated JS code, another instance of
-                 *        SourceNode, or an array where each member is one of those things.
-                 */
-                SourceNode.prototype.prepend = function SourceNode_prepend(aChunk) {
-                    if (Array.isArray(aChunk)) {
-                        for (var i = aChunk.length - 1; i >= 0; i--) {
-                            this.prepend(aChunk[i]);
-                        }
-                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
-                        this.children.unshift(aChunk);
-                    } else {
-                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
-                    }
-                    return this;
-                };
-                /**
-                 * Walk over the tree of JS snippets in this node and its children. The
-                 * walking function is called once for each snippet of JS and is passed that
-                 * snippet and the its original associated source's line/column location.
-                 *
-                 * @param aFn The traversal function.
-                 */
-                SourceNode.prototype.walk = function SourceNode_walk(aFn) {
-                    this.children.forEach(function (chunk) {
-                        if (chunk instanceof SourceNode) {
-                            chunk.walk(aFn);
-                        } else {
-                            if (chunk !== '') {
-                                aFn(chunk, {
-                                    source: this.source,
-                                    line: this.line,
-                                    column: this.column,
-                                    name: this.name
-                                });
-                            }
-                        }
-                    }, this);
-                };
-                /**
-                 * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
-                 * each of `this.children`.
-                 *
-                 * @param aSep The separator.
-                 */
-                SourceNode.prototype.join = function SourceNode_join(aSep) {
-                    var newChildren;
-                    var i;
-                    var len = this.children.length;
-                    if (len > 0) {
-                        newChildren = [];
-                        for (i = 0; i < len - 1; i++) {
-                            newChildren.push(this.children[i]);
-                            newChildren.push(aSep);
-                        }
-                        newChildren.push(this.children[i]);
-                        this.children = newChildren;
-                    }
-                    return this;
-                };
-                /**
-                 * Call String.prototype.replace on the very right-most source snippet. Useful
-                 * for trimming whitespace from the end of a source node, etc.
-                 *
-                 * @param aPattern The pattern to replace.
-                 * @param aReplacement The thing to replace the pattern with.
-                 */
-                SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
-                    var lastChild = this.children[this.children.length - 1];
-                    if (lastChild instanceof SourceNode) {
-                        lastChild.replaceRight(aPattern, aReplacement);
-                    } else if (typeof lastChild === 'string') {
-                        this.children[this.children.length - 1] = lastChild.replace(aPattern, aReplacement);
-                    } else {
-                        this.children.push(''.replace(aPattern, aReplacement));
-                    }
-                    return this;
-                };
-                /**
-                 * Return the string representation of this source node. Walks over the tree
-                 * and concatenates all the various snippets together to one string.
-                 */
-                SourceNode.prototype.toString = function SourceNode_toString() {
-                    var str = '';
-                    this.walk(function (chunk) {
-                        str += chunk;
-                    });
-                    return str;
-                };
-                /**
-                 * Returns the string representation of this source node along with a source
-                 * map.
-                 */
-                SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSourceMap(aArgs) {
-                    var generated = {
-                            code: '',
-                            line: 1,
-                            column: 0
-                        };
-                    var map = new SourceMapGenerator(aArgs);
-                    var sourceMappingActive = false;
-                    this.walk(function (chunk, original) {
-                        generated.code += chunk;
-                        if (original.source !== null && original.line !== null && original.column !== null) {
-                            map.addMapping({
-                                source: original.source,
-                                original: {
-                                    line: original.line,
-                                    column: original.column
-                                },
-                                generated: {
-                                    line: generated.line,
-                                    column: generated.column
-                                },
-                                name: original.name
-                            });
-                            sourceMappingActive = true;
-                        } else if (sourceMappingActive) {
-                            map.addMapping({
-                                generated: {
-                                    line: generated.line,
-                                    column: generated.column
-                                }
-                            });
-                            sourceMappingActive = false;
-                        }
-                        chunk.split('').forEach(function (ch) {
-                            if (ch === '\n') {
-                                generated.line++;
-                                generated.column = 0;
-                            } else {
-                                generated.column++;
-                            }
-                        });
-                    });
-                    return {
-                        code: generated.code,
-                        map: map
-                    };
-                };
-                exports.SourceNode = SourceNode;
-            });
-        },
-        {
-            './source-map-generator': 9,
-            'amdefine': 12
-        }
-    ],
-    9: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                var base64VLQ = require('./base64-vlq');
-                var util = require('./util');
-                var ArraySet = require('./array-set').ArraySet;
-                /**
-                 * An instance of the SourceMapGenerator represents a source map which is
-                 * being built incrementally. To create a new one, you must pass an object
-                 * with the following properties:
-                 *
-                 *   - file: The filename of the generated source.
-                 *   - sourceRoot: An optional root for all URLs in this source map.
-                 */
-                function SourceMapGenerator(aArgs) {
-                    this._file = util.getArg(aArgs, 'file');
-                    this._sourceRoot = util.getArg(aArgs, 'sourceRoot', null);
-                    this._sources = new ArraySet();
-                    this._names = new ArraySet();
-                    this._mappings = [];
-                    this._sourcesContents = null;
-                }
-                SourceMapGenerator.prototype._version = 3;
-                /**
-                 * Creates a new SourceMapGenerator based on a SourceMapConsumer
-                 *
-                 * @param aSourceMapConsumer The SourceMap.
-                 */
-                SourceMapGenerator.fromSourceMap = function SourceMapGenerator_fromSourceMap(aSourceMapConsumer) {
-                    var sourceRoot = aSourceMapConsumer.sourceRoot;
-                    var generator = new SourceMapGenerator({
-                            file: aSourceMapConsumer.file,
-                            sourceRoot: sourceRoot
-                        });
-                    aSourceMapConsumer.eachMapping(function (mapping) {
-                        var newMapping = {
-                                generated: {
-                                    line: mapping.generatedLine,
-                                    column: mapping.generatedColumn
-                                }
-                            };
-                        if (mapping.source) {
-                            newMapping.source = mapping.source;
-                            if (sourceRoot) {
-                                newMapping.source = util.relative(sourceRoot, newMapping.source);
-                            }
-                            newMapping.original = {
-                                line: mapping.originalLine,
-                                column: mapping.originalColumn
-                            };
-                            if (mapping.name) {
-                                newMapping.name = mapping.name;
-                            }
-                        }
-                        generator.addMapping(newMapping);
-                    });
-                    aSourceMapConsumer.sources.forEach(function (sourceFile) {
-                        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
-                        if (content) {
-                            generator.setSourceContent(sourceFile, content);
-                        }
-                    });
-                    return generator;
-                };
-                /**
-                 * Add a single mapping from original source line and column to the generated
-                 * source's line and column for this source map being created. The mapping
-                 * object should have the following properties:
-                 *
-                 *   - generated: An object with the generated line and column positions.
-                 *   - original: An object with the original line and column positions.
-                 *   - source: The original source file (relative to the sourceRoot).
-                 *   - name: An optional original token name for this mapping.
-                 */
-                SourceMapGenerator.prototype.addMapping = function SourceMapGenerator_addMapping(aArgs) {
-                    var generated = util.getArg(aArgs, 'generated');
-                    var original = util.getArg(aArgs, 'original', null);
-                    var source = util.getArg(aArgs, 'source', null);
-                    var name = util.getArg(aArgs, 'name', null);
-                    this._validateMapping(generated, original, source, name);
-                    if (source && !this._sources.has(source)) {
-                        this._sources.add(source);
-                    }
-                    if (name && !this._names.has(name)) {
-                        this._names.add(name);
-                    }
-                    this._mappings.push({
-                        generated: generated,
-                        original: original,
-                        source: source,
-                        name: name
-                    });
-                };
-                /**
-                 * Set the source content for a source file.
-                 */
-                SourceMapGenerator.prototype.setSourceContent = function SourceMapGenerator_setSourceContent(aSourceFile, aSourceContent) {
-                    var source = aSourceFile;
-                    if (this._sourceRoot) {
-                        source = util.relative(this._sourceRoot, source);
-                    }
-                    if (aSourceContent !== null) {
-                        // Add the source content to the _sourcesContents map.
-                        // Create a new _sourcesContents map if the property is null.
-                        if (!this._sourcesContents) {
-                            this._sourcesContents = {};
-                        }
-                        this._sourcesContents[util.toSetString(source)] = aSourceContent;
-                    } else {
-                        // Remove the source file from the _sourcesContents map.
-                        // If the _sourcesContents map is empty, set the property to null.
-                        delete this._sourcesContents[util.toSetString(source)];
-                        if (Object.keys(this._sourcesContents).length === 0) {
-                            this._sourcesContents = null;
-                        }
-                    }
-                };
-                /**
-                 * Applies a SourceMap for a source file to the SourceMap.
-                 * Each mapping to the supplied source file is rewritten using the
-                 * supplied SourceMap. Note: The resolution for the resulting mappings
-                 * is the minimium of this map and the supplied map.
-                 *
-                 * @param aSourceMapConsumer The SourceMap to be applied.
-                 * @param aSourceFile Optional. The filename of the source file.
-                 *                    If omitted, sourceMapConsumer.file will be used.
-                 */
-                SourceMapGenerator.prototype.applySourceMap = function SourceMapGenerator_applySourceMap(aSourceMapConsumer, aSourceFile) {
-                    // If aSourceFile is omitted, we will use the file property of the SourceMap
-                    if (!aSourceFile) {
-                        aSourceFile = aSourceMapConsumer.file;
-                    }
-                    var sourceRoot = this._sourceRoot;
-                    // Make "aSourceFile" relative if an absolute Url is passed.
-                    if (sourceRoot) {
-                        aSourceFile = util.relative(sourceRoot, aSourceFile);
-                    }
-                    // Applying the SourceMap can add and remove items from the sources and
-                    // the names array.
-                    var newSources = new ArraySet();
-                    var newNames = new ArraySet();
-                    // Find mappings for the "aSourceFile"
-                    this._mappings.forEach(function (mapping) {
-                        if (mapping.source === aSourceFile && mapping.original) {
-                            // Check if it can be mapped by the source map, then update the mapping.
-                            var original = aSourceMapConsumer.originalPositionFor({
-                                    line: mapping.original.line,
-                                    column: mapping.original.column
-                                });
-                            if (original.source !== null) {
-                                // Copy mapping
-                                if (sourceRoot) {
-                                    mapping.source = util.relative(sourceRoot, original.source);
-                                } else {
-                                    mapping.source = original.source;
-                                }
-                                mapping.original.line = original.line;
-                                mapping.original.column = original.column;
-                                if (original.name !== null && mapping.name !== null) {
-                                    // Only use the identifier name if it's an identifier
-                                    // in both SourceMaps
-                                    mapping.name = original.name;
-                                }
-                            }
-                        }
-                        var source = mapping.source;
-                        if (source && !newSources.has(source)) {
-                            newSources.add(source);
-                        }
-                        var name = mapping.name;
-                        if (name && !newNames.has(name)) {
-                            newNames.add(name);
-                        }
-                    }, this);
-                    this._sources = newSources;
-                    this._names = newNames;
-                    // Copy sourcesContents of applied map.
-                    aSourceMapConsumer.sources.forEach(function (sourceFile) {
-                        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
-                        if (content) {
-                            if (sourceRoot) {
-                                sourceFile = util.relative(sourceRoot, sourceFile);
-                            }
-                            this.setSourceContent(sourceFile, content);
-                        }
-                    }, this);
-                };
-                /**
-                 * A mapping can have one of the three levels of data:
-                 *
-                 *   1. Just the generated position.
-                 *   2. The Generated position, original position, and original source.
-                 *   3. Generated and original position, original source, as well as a name
-                 *      token.
-                 *
-                 * To maintain consistency, we validate that any new mapping being added falls
-                 * in to one of these categories.
-                 */
-                SourceMapGenerator.prototype._validateMapping = function SourceMapGenerator_validateMapping(aGenerated, aOriginal, aSource, aName) {
-                    if (aGenerated && 'line' in aGenerated && 'column' in aGenerated && aGenerated.line > 0 && aGenerated.column >= 0 && !aOriginal && !aSource && !aName) {
-                        // Case 1.
-                        return;
-                    } else if (aGenerated && 'line' in aGenerated && 'column' in aGenerated && aOriginal && 'line' in aOriginal && 'column' in aOriginal && aGenerated.line > 0 && aGenerated.column >= 0 && aOriginal.line > 0 && aOriginal.column >= 0 && aSource) {
-                        // Cases 2 and 3.
-                        return;
-                    } else {
-                        throw new Error('Invalid mapping.');
-                    }
-                };
-                /**
-                 * Serialize the accumulated mappings in to the stream of base 64 VLQs
-                 * specified by the source map format.
-                 */
-                SourceMapGenerator.prototype._serializeMappings = function SourceMapGenerator_serializeMappings() {
-                    var previousGeneratedColumn = 0;
-                    var previousGeneratedLine = 1;
-                    var previousOriginalColumn = 0;
-                    var previousOriginalLine = 0;
-                    var previousName = 0;
-                    var previousSource = 0;
-                    var result = '';
-                    var mapping;
-                    // The mappings must be guarenteed to be in sorted order before we start
-                    // serializing them or else the generated line numbers (which are defined
-                    // via the ';' separators) will be all messed up. Note: it might be more
-                    // performant to maintain the sorting as we insert them, rather than as we
-                    // serialize them, but the big O is the same either way.
-                    this._mappings.sort(function (mappingA, mappingB) {
-                        var cmp = mappingA.generated.line - mappingB.generated.line;
-                        return cmp === 0 ? mappingA.generated.column - mappingB.generated.column : cmp;
-                    });
-                    for (var i = 0, len = this._mappings.length; i < len; i++) {
-                        mapping = this._mappings[i];
-                        if (mapping.generated.line !== previousGeneratedLine) {
-                            previousGeneratedColumn = 0;
-                            while (mapping.generated.line !== previousGeneratedLine) {
-                                result += ';';
-                                previousGeneratedLine++;
-                            }
-                        } else {
-                            if (i > 0) {
-                                result += ',';
-                            }
-                        }
-                        result += base64VLQ.encode(mapping.generated.column - previousGeneratedColumn);
-                        previousGeneratedColumn = mapping.generated.column;
-                        if (mapping.source && mapping.original) {
-                            result += base64VLQ.encode(this._sources.indexOf(mapping.source) - previousSource);
-                            previousSource = this._sources.indexOf(mapping.source);
-                            // lines are stored 0-based in SourceMap spec version 3
-                            result += base64VLQ.encode(mapping.original.line - 1 - previousOriginalLine);
-                            previousOriginalLine = mapping.original.line - 1;
-                            result += base64VLQ.encode(mapping.original.column - previousOriginalColumn);
-                            previousOriginalColumn = mapping.original.column;
-                            if (mapping.name) {
-                                result += base64VLQ.encode(this._names.indexOf(mapping.name) - previousName);
-                                previousName = this._names.indexOf(mapping.name);
-                            }
-                        }
-                    }
-                    return result;
-                };
-                /**
-                 * Externalize the source map.
-                 */
-                SourceMapGenerator.prototype.toJSON = function SourceMapGenerator_toJSON() {
-                    var map = {
-                            version: this._version,
-                            file: this._file,
-                            sources: this._sources.toArray(),
-                            names: this._names.toArray(),
-                            mappings: this._serializeMappings()
-                        };
-                    if (this._sourceRoot) {
-                        map.sourceRoot = this._sourceRoot;
-                    }
-                    if (this._sourcesContents) {
-                        map.sourcesContent = map.sources.map(function (source) {
-                            if (map.sourceRoot) {
-                                source = util.relative(map.sourceRoot, source);
-                            }
-                            return Object.prototype.hasOwnProperty.call(this._sourcesContents, util.toSetString(source)) ? this._sourcesContents[util.toSetString(source)] : null;
-                        }, this);
-                    }
-                    return map;
-                };
-                /**
-                 * Render the source map being generated to a string.
-                 */
-                SourceMapGenerator.prototype.toString = function SourceMapGenerator_toString() {
-                    return JSON.stringify(this);
-                };
-                exports.SourceMapGenerator = SourceMapGenerator;
-            });
-        },
-        {
-            './base64-vlq': 13,
-            './array-set': 14,
-            './util': 15,
-            'amdefine': 12
-        }
-    ],
-    11: [
         function (require, module, exports) {
             /* -*- Mode: js; js-indent-level: 2; -*- */
             /*
@@ -8127,11 +7531,607 @@ require = function (e, t, n) {
             });
         },
         {
-            './util': 15,
-            './binary-search': 16,
+            './binary-search': 12,
+            './util': 13,
             './array-set': 14,
-            './base64-vlq': 13,
-            'amdefine': 12
+            './base64-vlq': 15,
+            'amdefine': 16
+        }
+    ],
+    9: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                var base64VLQ = require('./base64-vlq');
+                var util = require('./util');
+                var ArraySet = require('./array-set').ArraySet;
+                /**
+                 * An instance of the SourceMapGenerator represents a source map which is
+                 * being built incrementally. To create a new one, you must pass an object
+                 * with the following properties:
+                 *
+                 *   - file: The filename of the generated source.
+                 *   - sourceRoot: An optional root for all URLs in this source map.
+                 */
+                function SourceMapGenerator(aArgs) {
+                    this._file = util.getArg(aArgs, 'file');
+                    this._sourceRoot = util.getArg(aArgs, 'sourceRoot', null);
+                    this._sources = new ArraySet();
+                    this._names = new ArraySet();
+                    this._mappings = [];
+                    this._sourcesContents = null;
+                }
+                SourceMapGenerator.prototype._version = 3;
+                /**
+                 * Creates a new SourceMapGenerator based on a SourceMapConsumer
+                 *
+                 * @param aSourceMapConsumer The SourceMap.
+                 */
+                SourceMapGenerator.fromSourceMap = function SourceMapGenerator_fromSourceMap(aSourceMapConsumer) {
+                    var sourceRoot = aSourceMapConsumer.sourceRoot;
+                    var generator = new SourceMapGenerator({
+                            file: aSourceMapConsumer.file,
+                            sourceRoot: sourceRoot
+                        });
+                    aSourceMapConsumer.eachMapping(function (mapping) {
+                        var newMapping = {
+                                generated: {
+                                    line: mapping.generatedLine,
+                                    column: mapping.generatedColumn
+                                }
+                            };
+                        if (mapping.source) {
+                            newMapping.source = mapping.source;
+                            if (sourceRoot) {
+                                newMapping.source = util.relative(sourceRoot, newMapping.source);
+                            }
+                            newMapping.original = {
+                                line: mapping.originalLine,
+                                column: mapping.originalColumn
+                            };
+                            if (mapping.name) {
+                                newMapping.name = mapping.name;
+                            }
+                        }
+                        generator.addMapping(newMapping);
+                    });
+                    aSourceMapConsumer.sources.forEach(function (sourceFile) {
+                        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
+                        if (content) {
+                            generator.setSourceContent(sourceFile, content);
+                        }
+                    });
+                    return generator;
+                };
+                /**
+                 * Add a single mapping from original source line and column to the generated
+                 * source's line and column for this source map being created. The mapping
+                 * object should have the following properties:
+                 *
+                 *   - generated: An object with the generated line and column positions.
+                 *   - original: An object with the original line and column positions.
+                 *   - source: The original source file (relative to the sourceRoot).
+                 *   - name: An optional original token name for this mapping.
+                 */
+                SourceMapGenerator.prototype.addMapping = function SourceMapGenerator_addMapping(aArgs) {
+                    var generated = util.getArg(aArgs, 'generated');
+                    var original = util.getArg(aArgs, 'original', null);
+                    var source = util.getArg(aArgs, 'source', null);
+                    var name = util.getArg(aArgs, 'name', null);
+                    this._validateMapping(generated, original, source, name);
+                    if (source && !this._sources.has(source)) {
+                        this._sources.add(source);
+                    }
+                    if (name && !this._names.has(name)) {
+                        this._names.add(name);
+                    }
+                    this._mappings.push({
+                        generated: generated,
+                        original: original,
+                        source: source,
+                        name: name
+                    });
+                };
+                /**
+                 * Set the source content for a source file.
+                 */
+                SourceMapGenerator.prototype.setSourceContent = function SourceMapGenerator_setSourceContent(aSourceFile, aSourceContent) {
+                    var source = aSourceFile;
+                    if (this._sourceRoot) {
+                        source = util.relative(this._sourceRoot, source);
+                    }
+                    if (aSourceContent !== null) {
+                        // Add the source content to the _sourcesContents map.
+                        // Create a new _sourcesContents map if the property is null.
+                        if (!this._sourcesContents) {
+                            this._sourcesContents = {};
+                        }
+                        this._sourcesContents[util.toSetString(source)] = aSourceContent;
+                    } else {
+                        // Remove the source file from the _sourcesContents map.
+                        // If the _sourcesContents map is empty, set the property to null.
+                        delete this._sourcesContents[util.toSetString(source)];
+                        if (Object.keys(this._sourcesContents).length === 0) {
+                            this._sourcesContents = null;
+                        }
+                    }
+                };
+                /**
+                 * Applies a SourceMap for a source file to the SourceMap.
+                 * Each mapping to the supplied source file is rewritten using the
+                 * supplied SourceMap. Note: The resolution for the resulting mappings
+                 * is the minimium of this map and the supplied map.
+                 *
+                 * @param aSourceMapConsumer The SourceMap to be applied.
+                 * @param aSourceFile Optional. The filename of the source file.
+                 *                    If omitted, sourceMapConsumer.file will be used.
+                 */
+                SourceMapGenerator.prototype.applySourceMap = function SourceMapGenerator_applySourceMap(aSourceMapConsumer, aSourceFile) {
+                    // If aSourceFile is omitted, we will use the file property of the SourceMap
+                    if (!aSourceFile) {
+                        aSourceFile = aSourceMapConsumer.file;
+                    }
+                    var sourceRoot = this._sourceRoot;
+                    // Make "aSourceFile" relative if an absolute Url is passed.
+                    if (sourceRoot) {
+                        aSourceFile = util.relative(sourceRoot, aSourceFile);
+                    }
+                    // Applying the SourceMap can add and remove items from the sources and
+                    // the names array.
+                    var newSources = new ArraySet();
+                    var newNames = new ArraySet();
+                    // Find mappings for the "aSourceFile"
+                    this._mappings.forEach(function (mapping) {
+                        if (mapping.source === aSourceFile && mapping.original) {
+                            // Check if it can be mapped by the source map, then update the mapping.
+                            var original = aSourceMapConsumer.originalPositionFor({
+                                    line: mapping.original.line,
+                                    column: mapping.original.column
+                                });
+                            if (original.source !== null) {
+                                // Copy mapping
+                                if (sourceRoot) {
+                                    mapping.source = util.relative(sourceRoot, original.source);
+                                } else {
+                                    mapping.source = original.source;
+                                }
+                                mapping.original.line = original.line;
+                                mapping.original.column = original.column;
+                                if (original.name !== null && mapping.name !== null) {
+                                    // Only use the identifier name if it's an identifier
+                                    // in both SourceMaps
+                                    mapping.name = original.name;
+                                }
+                            }
+                        }
+                        var source = mapping.source;
+                        if (source && !newSources.has(source)) {
+                            newSources.add(source);
+                        }
+                        var name = mapping.name;
+                        if (name && !newNames.has(name)) {
+                            newNames.add(name);
+                        }
+                    }, this);
+                    this._sources = newSources;
+                    this._names = newNames;
+                    // Copy sourcesContents of applied map.
+                    aSourceMapConsumer.sources.forEach(function (sourceFile) {
+                        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
+                        if (content) {
+                            if (sourceRoot) {
+                                sourceFile = util.relative(sourceRoot, sourceFile);
+                            }
+                            this.setSourceContent(sourceFile, content);
+                        }
+                    }, this);
+                };
+                /**
+                 * A mapping can have one of the three levels of data:
+                 *
+                 *   1. Just the generated position.
+                 *   2. The Generated position, original position, and original source.
+                 *   3. Generated and original position, original source, as well as a name
+                 *      token.
+                 *
+                 * To maintain consistency, we validate that any new mapping being added falls
+                 * in to one of these categories.
+                 */
+                SourceMapGenerator.prototype._validateMapping = function SourceMapGenerator_validateMapping(aGenerated, aOriginal, aSource, aName) {
+                    if (aGenerated && 'line' in aGenerated && 'column' in aGenerated && aGenerated.line > 0 && aGenerated.column >= 0 && !aOriginal && !aSource && !aName) {
+                        // Case 1.
+                        return;
+                    } else if (aGenerated && 'line' in aGenerated && 'column' in aGenerated && aOriginal && 'line' in aOriginal && 'column' in aOriginal && aGenerated.line > 0 && aGenerated.column >= 0 && aOriginal.line > 0 && aOriginal.column >= 0 && aSource) {
+                        // Cases 2 and 3.
+                        return;
+                    } else {
+                        throw new Error('Invalid mapping.');
+                    }
+                };
+                /**
+                 * Serialize the accumulated mappings in to the stream of base 64 VLQs
+                 * specified by the source map format.
+                 */
+                SourceMapGenerator.prototype._serializeMappings = function SourceMapGenerator_serializeMappings() {
+                    var previousGeneratedColumn = 0;
+                    var previousGeneratedLine = 1;
+                    var previousOriginalColumn = 0;
+                    var previousOriginalLine = 0;
+                    var previousName = 0;
+                    var previousSource = 0;
+                    var result = '';
+                    var mapping;
+                    // The mappings must be guarenteed to be in sorted order before we start
+                    // serializing them or else the generated line numbers (which are defined
+                    // via the ';' separators) will be all messed up. Note: it might be more
+                    // performant to maintain the sorting as we insert them, rather than as we
+                    // serialize them, but the big O is the same either way.
+                    this._mappings.sort(function (mappingA, mappingB) {
+                        var cmp = mappingA.generated.line - mappingB.generated.line;
+                        return cmp === 0 ? mappingA.generated.column - mappingB.generated.column : cmp;
+                    });
+                    for (var i = 0, len = this._mappings.length; i < len; i++) {
+                        mapping = this._mappings[i];
+                        if (mapping.generated.line !== previousGeneratedLine) {
+                            previousGeneratedColumn = 0;
+                            while (mapping.generated.line !== previousGeneratedLine) {
+                                result += ';';
+                                previousGeneratedLine++;
+                            }
+                        } else {
+                            if (i > 0) {
+                                result += ',';
+                            }
+                        }
+                        result += base64VLQ.encode(mapping.generated.column - previousGeneratedColumn);
+                        previousGeneratedColumn = mapping.generated.column;
+                        if (mapping.source && mapping.original) {
+                            result += base64VLQ.encode(this._sources.indexOf(mapping.source) - previousSource);
+                            previousSource = this._sources.indexOf(mapping.source);
+                            // lines are stored 0-based in SourceMap spec version 3
+                            result += base64VLQ.encode(mapping.original.line - 1 - previousOriginalLine);
+                            previousOriginalLine = mapping.original.line - 1;
+                            result += base64VLQ.encode(mapping.original.column - previousOriginalColumn);
+                            previousOriginalColumn = mapping.original.column;
+                            if (mapping.name) {
+                                result += base64VLQ.encode(this._names.indexOf(mapping.name) - previousName);
+                                previousName = this._names.indexOf(mapping.name);
+                            }
+                        }
+                    }
+                    return result;
+                };
+                /**
+                 * Externalize the source map.
+                 */
+                SourceMapGenerator.prototype.toJSON = function SourceMapGenerator_toJSON() {
+                    var map = {
+                            version: this._version,
+                            file: this._file,
+                            sources: this._sources.toArray(),
+                            names: this._names.toArray(),
+                            mappings: this._serializeMappings()
+                        };
+                    if (this._sourceRoot) {
+                        map.sourceRoot = this._sourceRoot;
+                    }
+                    if (this._sourcesContents) {
+                        map.sourcesContent = map.sources.map(function (source) {
+                            if (map.sourceRoot) {
+                                source = util.relative(map.sourceRoot, source);
+                            }
+                            return Object.prototype.hasOwnProperty.call(this._sourcesContents, util.toSetString(source)) ? this._sourcesContents[util.toSetString(source)] : null;
+                        }, this);
+                    }
+                    return map;
+                };
+                /**
+                 * Render the source map being generated to a string.
+                 */
+                SourceMapGenerator.prototype.toString = function SourceMapGenerator_toString() {
+                    return JSON.stringify(this);
+                };
+                exports.SourceMapGenerator = SourceMapGenerator;
+            });
+        },
+        {
+            './util': 13,
+            './base64-vlq': 15,
+            './array-set': 14,
+            'amdefine': 16
+        }
+    ],
+    11: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                var SourceMapGenerator = require('./source-map-generator').SourceMapGenerator;
+                /**
+                 * SourceNodes provide a way to abstract over interpolating/concatenating
+                 * snippets of generated JavaScript source code while maintaining the line and
+                 * column information associated with the original source code.
+                 *
+                 * @param aLine The original line number.
+                 * @param aColumn The original column number.
+                 * @param aSource The original source's filename.
+                 * @param aChunks Optional. An array of strings which are snippets of
+                 *        generated JS, or other SourceNodes.
+                 * @param aName The original identifier.
+                 */
+                function SourceNode(aLine, aColumn, aSource, aChunks, aName) {
+                    this.children = [];
+                    this.line = aLine === undefined ? null : aLine;
+                    this.column = aColumn === undefined ? null : aColumn;
+                    this.source = aSource === undefined ? null : aSource;
+                    this.name = aName === undefined ? null : aName;
+                    if (aChunks != null)
+                        this.add(aChunks);
+                }
+                /**
+                 * Creates a SourceNode from generated code and a SourceMapConsumer.
+                 *
+                 * @param aGeneratedCode The generated code
+                 * @param aSourceMapConsumer The SourceMap for the generated code
+                 */
+                SourceNode.fromStringWithSourceMap = function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer) {
+                    // The SourceNode we want to fill with the generated code
+                    // and the SourceMap
+                    var node = new SourceNode();
+                    // The generated code
+                    // Processed fragments are removed from this array.
+                    var remainingLines = aGeneratedCode.split('\n');
+                    // We need to remember the position of "remainingLines"
+                    var lastGeneratedLine = 1, lastGeneratedColumn = 0;
+                    // The generate SourceNodes we need a code range.
+                    // To extract it current and last mapping is used.
+                    // Here we store the last mapping.
+                    var lastMapping = null;
+                    aSourceMapConsumer.eachMapping(function (mapping) {
+                        if (lastMapping === null) {
+                            // We add the generated code until the first mapping
+                            // to the SourceNode without any mapping.
+                            // Each line is added as separate string.
+                            while (lastGeneratedLine < mapping.generatedLine) {
+                                node.add(remainingLines.shift() + '\n');
+                                lastGeneratedLine++;
+                            }
+                            if (lastGeneratedColumn < mapping.generatedColumn) {
+                                var nextLine = remainingLines[0];
+                                node.add(nextLine.substr(0, mapping.generatedColumn));
+                                remainingLines[0] = nextLine.substr(mapping.generatedColumn);
+                                lastGeneratedColumn = mapping.generatedColumn;
+                            }
+                        } else {
+                            // We add the code from "lastMapping" to "mapping":
+                            // First check if there is a new line in between.
+                            if (lastGeneratedLine < mapping.generatedLine) {
+                                var code = '';
+                                // Associate full lines with "lastMapping"
+                                do {
+                                    code += remainingLines.shift() + '\n';
+                                    lastGeneratedLine++;
+                                    lastGeneratedColumn = 0;
+                                } while (lastGeneratedLine < mapping.generatedLine);
+                                // When we reached the correct line, we add code until we
+                                // reach the correct column too.
+                                if (lastGeneratedColumn < mapping.generatedColumn) {
+                                    var nextLine = remainingLines[0];
+                                    code += nextLine.substr(0, mapping.generatedColumn);
+                                    remainingLines[0] = nextLine.substr(mapping.generatedColumn);
+                                    lastGeneratedColumn = mapping.generatedColumn;
+                                }
+                                // Create the SourceNode.
+                                addMappingWithCode(lastMapping, code);
+                            } else {
+                                // There is no new line in between.
+                                // Associate the code between "lastGeneratedColumn" and
+                                // "mapping.generatedColumn" with "lastMapping"
+                                var nextLine = remainingLines[0];
+                                var code = nextLine.substr(0, mapping.generatedColumn - lastGeneratedColumn);
+                                remainingLines[0] = nextLine.substr(mapping.generatedColumn - lastGeneratedColumn);
+                                lastGeneratedColumn = mapping.generatedColumn;
+                                addMappingWithCode(lastMapping, code);
+                            }
+                        }
+                        lastMapping = mapping;
+                    }, this);
+                    // We have processed all mappings.
+                    // Associate the remaining code in the current line with "lastMapping"
+                    // and add the remaining lines without any mapping
+                    addMappingWithCode(lastMapping, remainingLines.join('\n'));
+                    return node;
+                    function addMappingWithCode(mapping, code) {
+                        if (mapping.source === undefined) {
+                            node.add(code);
+                        } else {
+                            node.add(new SourceNode(mapping.originalLine, mapping.originalColumn, mapping.source, code, mapping.name));
+                        }
+                    }
+                };
+                /**
+                 * Add a chunk of generated JS to this source node.
+                 *
+                 * @param aChunk A string snippet of generated JS code, another instance of
+                 *        SourceNode, or an array where each member is one of those things.
+                 */
+                SourceNode.prototype.add = function SourceNode_add(aChunk) {
+                    if (Array.isArray(aChunk)) {
+                        aChunk.forEach(function (chunk) {
+                            this.add(chunk);
+                        }, this);
+                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
+                        if (aChunk) {
+                            this.children.push(aChunk);
+                        }
+                    } else {
+                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
+                    }
+                    return this;
+                };
+                /**
+                 * Add a chunk of generated JS to the beginning of this source node.
+                 *
+                 * @param aChunk A string snippet of generated JS code, another instance of
+                 *        SourceNode, or an array where each member is one of those things.
+                 */
+                SourceNode.prototype.prepend = function SourceNode_prepend(aChunk) {
+                    if (Array.isArray(aChunk)) {
+                        for (var i = aChunk.length - 1; i >= 0; i--) {
+                            this.prepend(aChunk[i]);
+                        }
+                    } else if (aChunk instanceof SourceNode || typeof aChunk === 'string') {
+                        this.children.unshift(aChunk);
+                    } else {
+                        throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + aChunk);
+                    }
+                    return this;
+                };
+                /**
+                 * Walk over the tree of JS snippets in this node and its children. The
+                 * walking function is called once for each snippet of JS and is passed that
+                 * snippet and the its original associated source's line/column location.
+                 *
+                 * @param aFn The traversal function.
+                 */
+                SourceNode.prototype.walk = function SourceNode_walk(aFn) {
+                    this.children.forEach(function (chunk) {
+                        if (chunk instanceof SourceNode) {
+                            chunk.walk(aFn);
+                        } else {
+                            if (chunk !== '') {
+                                aFn(chunk, {
+                                    source: this.source,
+                                    line: this.line,
+                                    column: this.column,
+                                    name: this.name
+                                });
+                            }
+                        }
+                    }, this);
+                };
+                /**
+                 * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
+                 * each of `this.children`.
+                 *
+                 * @param aSep The separator.
+                 */
+                SourceNode.prototype.join = function SourceNode_join(aSep) {
+                    var newChildren;
+                    var i;
+                    var len = this.children.length;
+                    if (len > 0) {
+                        newChildren = [];
+                        for (i = 0; i < len - 1; i++) {
+                            newChildren.push(this.children[i]);
+                            newChildren.push(aSep);
+                        }
+                        newChildren.push(this.children[i]);
+                        this.children = newChildren;
+                    }
+                    return this;
+                };
+                /**
+                 * Call String.prototype.replace on the very right-most source snippet. Useful
+                 * for trimming whitespace from the end of a source node, etc.
+                 *
+                 * @param aPattern The pattern to replace.
+                 * @param aReplacement The thing to replace the pattern with.
+                 */
+                SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
+                    var lastChild = this.children[this.children.length - 1];
+                    if (lastChild instanceof SourceNode) {
+                        lastChild.replaceRight(aPattern, aReplacement);
+                    } else if (typeof lastChild === 'string') {
+                        this.children[this.children.length - 1] = lastChild.replace(aPattern, aReplacement);
+                    } else {
+                        this.children.push(''.replace(aPattern, aReplacement));
+                    }
+                    return this;
+                };
+                /**
+                 * Return the string representation of this source node. Walks over the tree
+                 * and concatenates all the various snippets together to one string.
+                 */
+                SourceNode.prototype.toString = function SourceNode_toString() {
+                    var str = '';
+                    this.walk(function (chunk) {
+                        str += chunk;
+                    });
+                    return str;
+                };
+                /**
+                 * Returns the string representation of this source node along with a source
+                 * map.
+                 */
+                SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSourceMap(aArgs) {
+                    var generated = {
+                            code: '',
+                            line: 1,
+                            column: 0
+                        };
+                    var map = new SourceMapGenerator(aArgs);
+                    var sourceMappingActive = false;
+                    this.walk(function (chunk, original) {
+                        generated.code += chunk;
+                        if (original.source !== null && original.line !== null && original.column !== null) {
+                            map.addMapping({
+                                source: original.source,
+                                original: {
+                                    line: original.line,
+                                    column: original.column
+                                },
+                                generated: {
+                                    line: generated.line,
+                                    column: generated.column
+                                },
+                                name: original.name
+                            });
+                            sourceMappingActive = true;
+                        } else if (sourceMappingActive) {
+                            map.addMapping({
+                                generated: {
+                                    line: generated.line,
+                                    column: generated.column
+                                }
+                            });
+                            sourceMappingActive = false;
+                        }
+                        chunk.split('').forEach(function (ch) {
+                            if (ch === '\n') {
+                                generated.line++;
+                                generated.column = 0;
+                            } else {
+                                generated.column++;
+                            }
+                        });
+                    });
+                    return {
+                        code: generated.code,
+                        map: map
+                    };
+                };
+                exports.SourceNode = SourceNode;
+            });
+        },
+        {
+            './source-map-generator': 9,
+            'amdefine': 16
         }
     ],
     17: [
@@ -8184,7 +8184,7 @@ require = function (e, t, n) {
         },
         {}
     ],
-    12: [
+    16: [
         function (require, module, exports) {
             (function (process, __filename) {
                 /** vim: et:ts=4:sw=4:sts=4
@@ -8606,7 +8606,7 @@ require = function (e, t, n) {
         },
         { '__browserify_process': 17 }
     ],
-    13: [
+    15: [
         function (require, module, exports) {
             /* -*- Mode: js; js-indent-level: 2; -*- */
             /*
@@ -8735,8 +8735,85 @@ require = function (e, t, n) {
         },
         {
             './base64': 19,
-            'amdefine': 12
+            'amdefine': 16
         }
+    ],
+    12: [
+        function (require, module, exports) {
+            /* -*- Mode: js; js-indent-level: 2; -*- */
+            /*
+             * Copyright 2011 Mozilla Foundation and contributors
+             * Licensed under the New BSD license. See LICENSE or:
+             * http://opensource.org/licenses/BSD-3-Clause
+             */
+            if (typeof define !== 'function') {
+                var define = require('amdefine')(module);
+            }
+            define(function (require, exports, module) {
+                /**
+                 * Recursive implementation of binary search.
+                 *
+                 * @param aLow Indices here and lower do not contain the needle.
+                 * @param aHigh Indices here and higher do not contain the needle.
+                 * @param aNeedle The element being searched for.
+                 * @param aHaystack The non-empty array being searched.
+                 * @param aCompare Function which takes two elements and returns -1, 0, or 1.
+                 */
+                function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare) {
+                    // This function terminates when one of the following is true:
+                    //
+                    //   1. We find the exact element we are looking for.
+                    //
+                    //   2. We did not find the exact element, but we can return the next
+                    //      closest element that is less than that element.
+                    //
+                    //   3. We did not find the exact element, and there is no next-closest
+                    //      element which is less than the one we are searching for, so we
+                    //      return null.
+                    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
+                    var cmp = aCompare(aNeedle, aHaystack[mid]);
+                    if (cmp === 0) {
+                        // Found the element we are looking for.
+                        return aHaystack[mid];
+                    } else if (cmp > 0) {
+                        // aHaystack[mid] is greater than our needle.
+                        if (aHigh - mid > 1) {
+                            // The element is in the upper half.
+                            return recursiveSearch(mid, aHigh, aNeedle, aHaystack, aCompare);
+                        }
+                        // We did not find an exact match, return the next closest one
+                        // (termination case 2).
+                        return aHaystack[mid];
+                    } else {
+                        // aHaystack[mid] is less than our needle.
+                        if (mid - aLow > 1) {
+                            // The element is in the lower half.
+                            return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare);
+                        }
+                        // The exact needle element was not found in this haystack. Determine if
+                        // we are in termination case (2) or (3) and return the appropriate thing.
+                        return aLow < 0 ? null : aHaystack[aLow];
+                    }
+                }
+                /**
+                 * This is an implementation of binary search which will always try and return
+                 * the next lowest value checked if there is no exact hit. This is because
+                 * mappings between original and generated line/col pairs are single points,
+                 * and there is an implicit region between each of them, so a miss just means
+                 * that you aren't on the very start of a region.
+                 *
+                 * @param aNeedle The element you are looking for.
+                 * @param aHaystack The array that is being searched.
+                 * @param aCompare A function which takes the needle and an element in the
+                 *     array and returns -1, 0, or 1 depending on whether the needle is less
+                 *     than, equal to, or greater than the element, respectively.
+                 */
+                exports.search = function search(aNeedle, aHaystack, aCompare) {
+                    return aHaystack.length > 0 ? recursiveSearch(-1, aHaystack.length, aNeedle, aHaystack, aCompare) : null;
+                };
+            });
+        },
+        { 'amdefine': 16 }
     ],
     14: [
         function (require, module, exports) {
@@ -8827,11 +8904,11 @@ require = function (e, t, n) {
             });
         },
         {
-            './util': 15,
-            'amdefine': 12
+            './util': 13,
+            'amdefine': 16
         }
     ],
-    15: [
+    13: [
         function (require, module, exports) {
             /* -*- Mode: js; js-indent-level: 2; -*- */
             /*
@@ -8887,84 +8964,7 @@ require = function (e, t, n) {
                 exports.relative = relative;
             });
         },
-        { 'amdefine': 12 }
-    ],
-    16: [
-        function (require, module, exports) {
-            /* -*- Mode: js; js-indent-level: 2; -*- */
-            /*
-             * Copyright 2011 Mozilla Foundation and contributors
-             * Licensed under the New BSD license. See LICENSE or:
-             * http://opensource.org/licenses/BSD-3-Clause
-             */
-            if (typeof define !== 'function') {
-                var define = require('amdefine')(module);
-            }
-            define(function (require, exports, module) {
-                /**
-                 * Recursive implementation of binary search.
-                 *
-                 * @param aLow Indices here and lower do not contain the needle.
-                 * @param aHigh Indices here and higher do not contain the needle.
-                 * @param aNeedle The element being searched for.
-                 * @param aHaystack The non-empty array being searched.
-                 * @param aCompare Function which takes two elements and returns -1, 0, or 1.
-                 */
-                function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare) {
-                    // This function terminates when one of the following is true:
-                    //
-                    //   1. We find the exact element we are looking for.
-                    //
-                    //   2. We did not find the exact element, but we can return the next
-                    //      closest element that is less than that element.
-                    //
-                    //   3. We did not find the exact element, and there is no next-closest
-                    //      element which is less than the one we are searching for, so we
-                    //      return null.
-                    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
-                    var cmp = aCompare(aNeedle, aHaystack[mid]);
-                    if (cmp === 0) {
-                        // Found the element we are looking for.
-                        return aHaystack[mid];
-                    } else if (cmp > 0) {
-                        // aHaystack[mid] is greater than our needle.
-                        if (aHigh - mid > 1) {
-                            // The element is in the upper half.
-                            return recursiveSearch(mid, aHigh, aNeedle, aHaystack, aCompare);
-                        }
-                        // We did not find an exact match, return the next closest one
-                        // (termination case 2).
-                        return aHaystack[mid];
-                    } else {
-                        // aHaystack[mid] is less than our needle.
-                        if (mid - aLow > 1) {
-                            // The element is in the lower half.
-                            return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare);
-                        }
-                        // The exact needle element was not found in this haystack. Determine if
-                        // we are in termination case (2) or (3) and return the appropriate thing.
-                        return aLow < 0 ? null : aHaystack[aLow];
-                    }
-                }
-                /**
-                 * This is an implementation of binary search which will always try and return
-                 * the next lowest value checked if there is no exact hit. This is because
-                 * mappings between original and generated line/col pairs are single points,
-                 * and there is an implicit region between each of them, so a miss just means
-                 * that you aren't on the very start of a region.
-                 *
-                 * @param aNeedle The element you are looking for.
-                 * @param aHaystack The array that is being searched.
-                 * @param aCompare A function which takes the needle and an element in the
-                 *     array and returns -1, 0, or 1 depending on whether the needle is less
-                 *     than, equal to, or greater than the element, respectively.
-                 */
-                exports.search = function search(aNeedle, aHaystack, aCompare) {
-                    return aHaystack.length > 0 ? recursiveSearch(-1, aHaystack.length, aNeedle, aHaystack, aCompare) : null;
-                };
-            });
-        },
-        { 'amdefine': 12 }
+        { 'amdefine': 16 }
     ],
     19: [
         function (require, module, exports) {
@@ -9004,15 +9004,15 @@ require = function (e, t, n) {
                 };
             });
         },
-        { 'amdefine': 12 }
+        { 'amdefine': 16 }
     ]
 }, {}, [
     'CCiCNi',
-    'o9QCoL',
-    'R8Ba+v',
-    'WEt/eN',
     'fLaY4S',
+    'WEt/eN',
+    'o9QCoL',
     'h+sAzN',
+    'R8Ba+v',
     'yhbTZ0'
 ]);
 ;
