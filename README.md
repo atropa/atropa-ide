@@ -13,8 +13,8 @@ npm install atropa-ide
 
 ## Usage
 
-
 ### Startup
+
 atropa-ide may be started from the command line. Go into the `.bin` folder 
 inside the node_modules folder where you installed this package and run 
 `atropa-ide 5555`. The server will start and give you the web address to 
@@ -34,6 +34,7 @@ ide.start(port, serverRoot);
 console.log('open http://localhost:' +
     port + ' in your web browser to get started.');
 ```
+
 ### Load Files by Dragging and Dropping
 
 Both the ckeditor and ace editor support loading files by dropping them into 
