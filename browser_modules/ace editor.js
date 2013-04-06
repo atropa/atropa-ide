@@ -20,7 +20,11 @@ module.exports.prototype.initializeAce = function (options) {
     var defaults = require('./ace editor default settings.js');
     
     function loadFile (files) {
-        my.loadFile(files);
+        my.loadFile(files, function () {
+            var modelist = ace.require('ace/ext/modelist');
+            var mode = modelist.getModeFromPath(my.fileMeta.name).mode;
+            my.editor.getSession().setMode(mode);
+        });
     }
     
     function initializeEditor () {
@@ -63,6 +67,9 @@ module.exports.prototype.initializeAce = function (options) {
         
         my.textarea = document.getElementById('newFile');
         my.editor = ace.edit("editor");
+        ace.require('ace/ext/show_settings_menu').init(my.editor);
+        ace.require('ace/ext/show_keyboard_shortcuts').init(my.editor);
+        
         my.session = my.editor.getSession();
         my.renderer = my.editor.renderer;
         my.editor.commands.addCommand({

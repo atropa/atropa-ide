@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/ext/static_highlight', ['require', 'exports', 'module' , 'ace/edit_session', 'ace/layer/text'], function(require, exports, module) {
+ace.define('ace/ext/static_highlight', ['require', 'exports', 'module' , 'ace/edit_session', 'ace/layer/text', 'ace/config'], function(require, exports, module) {
 
 
 var EditSession = require("../edit_session").EditSession;
@@ -52,45 +52,65 @@ margin-right: 3px;\
 -webkit-user-select: none;\
 user-select: none;\
 }";
+var config = require("../config");
 
-exports.render = function(input, mode, theme, lineStart, disableGutter) {
+exports.render = function(input, mode, theme, lineStart, disableGutter, callback) {
     lineStart = parseInt(lineStart || 1, 10);
-    
-    var session = new EditSession("");
-    session.setMode(mode);
-    session.setUseWorker(false);
-    
-    var textLayer = new TextLayer(document.createElement("div"));
-    textLayer.setSession(session);
-    textLayer.config = {
-        characterWidth: 10,
-        lineHeight: 20
-    };
-    
-    session.setValue(input);
-            
-    var stringBuilder = [];
-    var length =  session.getLength();
-
-    for(var ix = 0; ix < length; ix++) {
-        stringBuilder.push("<div class='ace_line'>");
-        if (!disableGutter)
-            stringBuilder.push("<span class='ace_gutter ace_gutter-cell' unselectable='on'>" + (ix + lineStart) + "</span>");
-        textLayer.$renderLine(stringBuilder, ix, true, false);
-        stringBuilder.push("</div>");
+    if(typeof theme !== 'string' && typeof mode !== 'string') {
+        return renderer(mode, theme);
     }
-    var html = "<div class=':cssClass'>\
-        <div class='ace_editor ace_scroller ace_text-layer'>\
-            :code\
-        </div>\
-    </div>".replace(/:cssClass/, theme.cssClass).replace(/:code/, stringBuilder.join(""));
+    if (typeof theme == "string") {
+        config.loadModule(['theme', theme], function (theme) {
+            checkMode(theme);
+        });
+    } else {
+        checkMode(theme);
+    }
+    function checkMode (theme) {
+        if (typeof mode == "string") {
+            config.loadModule(['mode', mode], function (mode) {
+                callback(renderer(new mode.Mode(), theme));
+            });
+        } else {
+            callback(renderer(mode, theme));
+        }
+    }
+    function renderer (mode, theme) {
+        var session = new EditSession("");
+        session.setMode(mode);
+        session.setUseWorker(false);
+        var textLayer = new TextLayer(document.createElement("div"));
+        textLayer.setSession(session);
+        textLayer.config = {
+            characterWidth: 10,
+            lineHeight: 20
+        };
         
-    textLayer.destroy();
+        session.setValue(input);
+                
+        var stringBuilder = [];
+        var length =  session.getLength();
+
+        for(var ix = 0; ix < length; ix++) {
+            stringBuilder.push("<div class='ace_line'>");
+            if (!disableGutter)
+                stringBuilder.push("<span class='ace_gutter ace_gutter-cell' unselectable='on'>" + (ix + lineStart) + "</span>");
+            textLayer.$renderLine(stringBuilder, ix, true, false);
+            stringBuilder.push("</div>");
+        }
+        var html = "<div class=':cssClass'>\
+            <div class='ace_editor ace_scroller ace_text-layer'>\
+                :code\
+            </div>\
+        </div>".replace(/:cssClass/, theme.cssClass).replace(/:code/, stringBuilder.join(""));
             
-    return {
-        css: baseStyles + theme.cssText,
-        html: html
-    };
+        textLayer.destroy();
+                
+        return {
+            css: baseStyles + theme.cssText,
+            html: html
+        };
+    }
 };
 
 });
